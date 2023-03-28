@@ -13,140 +13,71 @@
     <link rel="stylesheet" href="../css/acercaDe.css" />
     <title>Pruebas de pocicionamiento</title>
   </head>
-  <body class="grid-container">
+  <body class="d-flex flex-column">
     <!--Contenerdor de rejillas-->
-    <header class="header1">Header</header>
-
-    <nav class="navbar">
+    <nav class="navbar flex-shrink-0 navbar-expand-lg bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasNavbar"
-          aria-controls="offcanvasNavbar"
-        >
+        <a class="navbar-brand" href="#"><img src="../img/logo.png" alt=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div
-          class="offcanvas offcanvas-end"
-          tabindex="-1"
-          id="offcanvasNavbar"
-          aria-labelledby="offcanvasNavbarLabel"
-        >
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li>
-                    <hr class="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-            <form class="d-flex mt-3" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
-          </div>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown link
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
-    <aside class="sidebar">Aside</aside>
-    <article class="main">
-      <div class="container">
-        <div class="row g-3">
-          <div class="col-12 col-md-6 col-lg-4">
-            <div class="card">
-              <img
-                src="./src/Foto generation.jpg"
-                class="card-img-top"
-                alt="Generation"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Generation</h5>
-                <p class="card-text">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Dolorem velit ullam nam neque architecto veritatis, eum odit
-                  qui corrupti tenetur repellendus repellat quam voluptatem,
-                  ratione quos deserunt, iusto asperiores dolore?
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4">
-            <div class="card">
-              <img src="./src/coppel.jpg" class="card-img-top" alt="Coppel" />
-              <div class="card-body">
-                <h5 class="card-title">Coppel</h5>
-                <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut
-                  error illo accusamus, soluta porro nobis minus veritatis
-                  perspiciatis quaerat consequatur cum, eius dolores quia,
-                  molestiae distinctio! Consequatur, eveniet. Non, ab?
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4">
-            <div class="card">
-              <img
-                src="./src/diseno-web-freelance.jpg"
-                class="card-img-top"
-                alt="Freelance"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Freelance</h5>
-                <p class="card-text">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi
-                  eligendi amet nam unde maxime, nesciunt possimus mollitia
-                  aspernatur! Culpa et quas quam rerum reprehenderit veniam
-                  necessitatibus quia officiis magni soluta.
-                </p>
-              </div>
-            </div>
-          </div>
+    <article class="container main flex-grow-1">
+      <div class="container row scroller">
+        <div class="col-md-4 col-sm-6 col-12 mb-3 mt-3">
+          <img src="https://img.freepik.com/vector-gratis/hombre-muestra-gesto-gran-idea_10045-637.jpg" class="img-fluid rounded-5" />
         </div>
-      </div>
+        <div class="col-md-4 col-sm-6 col-12 mb-3 mt-3">
+          <img src="https://img.freepik.com/vector-gratis/hombre-muestra-gesto-gran-idea_10045-637.jpg" class="img-fluid rounded-5" />
+        </div>
+        <div class="col-md-4 col-sm-6 col-12 mb-3 mt-3">
+          <img src="https://img.freepik.com/vector-gratis/hombre-muestra-gesto-gran-idea_10045-637.jpg" class="img-fluid rounded-5" />
+        </div>
+        <div class="col-md-4 col-sm-6 col-12 mb-3 mt-3">
+          <img src="https://img.freepik.com/vector-gratis/hombre-muestra-gesto-gran-idea_10045-637.jpg" class="img-fluid rounded-5" />
+        </div>
+        <div class="col-md-4 col-sm-6 col-12 mb-3 mt-3">
+          <img src="https://img.freepik.com/vector-gratis/hombre-muestra-gesto-gran-idea_10045-637.jpg" class="img-fluid rounded-5" />
+        </div>
+        <div class="col-md-4 col-sm-6 col-12 mb-3 mt-3">
+          <img src="https://img.freepik.com/vector-gratis/hombre-muestra-gesto-gran-idea_10045-637.jpg" class="img-fluid rounded-5" />
+        </div>
+        <div class="col-md-4 col-sm-6 col-12 mb-3 mt-3">
+          <img src="https://img.freepik.com/vector-gratis/hombre-muestra-gesto-gran-idea_10045-637.jpg" class="img-fluid rounded-5" />
+        </div>
+        <div class="col-md-4 col-sm-6 col-12 mb-3 mt-3">
+          <img src="https://img.freepik.com/vector-gratis/hombre-muestra-gesto-gran-idea_10045-637.jpg" class="img-fluid rounded-5" />
+        </div>
+        <div class="col-md-4 col-sm-6 col-12 mb-3 mt-3">
+          <img src="https://img.freepik.com/vector-gratis/hombre-muestra-gesto-gran-idea_10045-637.jpg" class="img-fluid rounded-5" />
+        </div>
     </article>
 
+    <footer class="footer flex-shrink-0 -bg-primary">Footer</footer>
     <!--Agragar estos 3 Sripts-->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
@@ -164,5 +95,4 @@
       crossorigin="anonymous"
     ></script>
   </body>
-  <footer class="footer1 fixed-bottom">Footer</footer>
 </html>

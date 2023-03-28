@@ -1,49 +1,6 @@
-/* :root {
-    --first-color: rgb(107, 26, 29);
-    --first-alpha-color: rgba(107, 26, 29, 0.75);
-    --second-color: rgb(169, 64, 71);
-    --second-alpha-color: rgba(169, 64, 71, 0.75);
-    --third-color: rgb(248, 162, 176);
-    --third-alpha-color: rgba(248, 162, 176, 0.75);
-    --fourth-color: rgb(228,206,219);
-    --fourth-alpha-color: rgba(228,206,219, 0.75)
-    --fifth-color: rgb(224, 93, 96)
-    --fifth-alpha-color: rgba(224, 93, 96, 0.75)
-    --white-color: rgb(255,255,255)
-  } */
-
-/* Reset styles */
-/* .container {
-   display: grid;
-   grid-template-columns: repeat(12,1fr);
-   grid-template-rows: repeat(8, 1fr);
-   grid-template-areas: "nav nav nav nav nav nav nav nav nav nav nav nav" 
-                        "img img img img img img img img img img img img"
-                        "img img img img img img img img img img img img"
-                        "img img img img img img img img img img img img"
-                        "img img img img img img img img img img img img"
-                        "img img img img img img img img img img img img"
-                        "img img img img img img img img img img img img"
-                        "foot foot foot foot foot foot foot foot foot foot foot foot";
-  } */
-/* header {
-  grid-area: nav;
-  } */
-/* main {
-    grid-area: img;
-  } */
-
-/* Boostrap Styles  aqui cambien las etiquetas que te da boostrap de acuerdo a la paleta de colores
-  o tamanos que usen*/
-
-/* Medium devices (tablets, 768px and up) */
-/* @media (min-width: 768px) {
-  } */
-
-/* XX-Large devices (larger desktops, 1400px and up) */
-/* @media (min-width: 1400px) {
-  }
-   */
+:root {
+  /* colores */
+}
 * {
   box-sizing: border-box;
   padding: 0;
@@ -51,6 +8,7 @@
 }
 body {
   min-height: 100%; /*Aqui indica el min de altura que queremos que tenga de la pagina*/
+  background-color: whitesmoke;
 }
 html {
   height: 100%;
@@ -61,6 +19,7 @@ html {
   border-radius: 4px;
   padding: 10px;
 }
+
 .header1 {
   grid-area: header1;
   background-color: cornflowerblue;
@@ -75,7 +34,7 @@ html {
 }
 .main {
   grid-area: main;
-  background-color: hotpink;
+  background-color: whitesmoke;
 }
 /* .footer1{
     grid-area: footer1;
@@ -83,37 +42,48 @@ html {
 } */
 
 /*Telefono*/
-.grid-container {
-  display: grid;
-  grid-template-areas:
-    "header1"
-    "main"
-    "sidebar"
-    /*"footer1"*/
-    "navbar";
-}
+
 /*Tablet*/
-@media (min-width: 600px) {
-  .grid-container {
-    grid-template-columns: 200px auto;
-    grid-template-rows: 100px 50px auto 100px;
-    grid-template-areas:
-      "header1 header1"
-      "navbar navbar"
-      "sidebar main"
-      /*"footer1 footer1"*/;
+@media (max-width: 700px) {
+  .d-flex .flex-column {
+    flex-direction: column;
+  }
+  nav div a img {
+    width: auto;
+    height: 5vh;
+  }
+
+  .navbar {
+    order: 1;
+    position: sticky;
+    bottom: 0;
+  }
+  .footer {
+    display: none;
   }
 }
 /*Escritorio*/
-@media (min-width: 900px) {
-  .grid-container {
-    grid-template-columns: 200px auto;
-    grid-template-rows: 100px 50px auto 100px;
-    grid-template-areas:
-      "header1 header1 header1"
-      "navbar nabvar navbar"
-      /*Con un . (punto) se crea un epacio vacio*/
-      "sidebar sidebar main"
-      /*"footer1 footer1 footer1"*/;
+@media (max-width: 1400px) {
+  html,
+  body {
+    height: 100%;
+  }
+  nav div a img {
+    width: auto;
+    height: 5vh;
+  }
+  .main {
+    overflow-y: auto;
+  }
+  .navbar,
+  .footer {
+    height: 10%;
+  }
+  .footer {
+    background-color: black;
+  }
+
+  .main {
+    height: 80%;
   }
 }
