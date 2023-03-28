@@ -1,0 +1,32 @@
+:root {
+    --first-color: rgb(107, 26, 29);
+    --first-alpha-color: rgba(107, 26, 29, 0.75);
+    --second-color: rgb(169, 64, 71);
+    --second-alpha-color: rgba(169, 64, 71, 0.75);
+    --third-color: rgb(248, 162, 176);
+    --third-alpha-color: rgba(248, 162, 176, 0.75);
+    --fourth-color: rgb(228,206,219);
+    --fourth-alpha-color: rgba(228,206,219, 0.75)
+    --fifth-color: rgb(224, 93, 96)
+    --fifth-alpha-color: rgba(224, 93, 96, 0.75)
+    --white-color: rgb(255,255,255)
+  }
+  
+  
+  /* Reset styles */
+  body {
+    font-family: "Raleway", sans-serif;
+  }
+  /* Boostrap Styles  aqui cambien las etiquetas que te da boostrap de acuerdo a la paleta de colores
+  o tamanos que usen*/
+  
+  
+  /* Medium devices (tablets, 768px and up) */
+  @media (min-width: 768px) {
+  }
+
+  
+  /* XX-Large devices (larger desktops, 1400px and up) */
+  @media (min-width: 1400px) {
+  }
+  
