@@ -262,7 +262,7 @@ body {
     flex-direction: column;
   }
   /* cambia el navbar a la parte inferior en mobile 
-y desaparece el footer*/
+  y desaparece el footer*/
   .navbar {
     order: 1;
     position: sticky;
@@ -277,6 +277,20 @@ y desaparece el footer*/
   }
   .contenedor1 {
     grid-template-columns: auto;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (max-width: 950px) {
+  .navbar-links {
+    display: none;
+  }
+  .navbar-toggler {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .contenedor1 {
     justify-content: center;
     align-items: center;
   }
