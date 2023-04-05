@@ -62,7 +62,11 @@ body {
 .logoIpn:hover {
   box-shadow: 0 0 10px rgb(254, 254, 254);
 }
-@media (max-width: 950px) {
+.iconosCarritoLogin {
+  display: flex;
+  justify-content: space-evenly;
+}
+@media (max-width: 1300px) {
   .navbar {
     display: flex;
   }
@@ -78,7 +82,7 @@ body {
   }
 }
 
-@media (max-width: 957px) {
+@media (max-width: 1300px) {
   .navbar-nav {
     display: none;
   }
