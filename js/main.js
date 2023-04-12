@@ -2,6 +2,8 @@ let txtName = document.getElementById("name");
 let txtemail = document.getElementById("txtCorreo");
 let txtMensaje = document.getElementById("mensaje");
 let txtTelefono = document.getElementById("telefono");
+const form = document.getElementById("formSend");
+console.log(form);
 
 let alertValidaciones = document.getElementById("alertValidaciones");
 let alertValidacionesTexto = document.getElementById("alertValidacionesTexto");
@@ -11,68 +13,6 @@ let btnClear = document.getElementById("btnClear");
 
 let isValid = true;
 let idTimeout;
-
-/////DANI
-var Email = {
-  send: function (a) {
-    return new Promise(function (n, e) {
-      (a.nocache = Math.floor(1e6 * Math.random() + 1)), (a.Action = "Send");
-      var t = JSON.stringify(a);
-      Email.ajaxPost("https://smtpjs.com/v3/smtpjs.aspx?", t, function (e) {
-        n(e);
-      });
-    });
-  },
-  ajaxPost: function (e, n, t) {
-    var a = Email.createCORSRequest("POST", e);
-    a.setRequestHeader("Content-type", "application/x-www-form-urlencoded"),
-      (a.onload = function () {
-        var e = a.responseText;
-        null != t && t(e);
-      }),
-      a.send(n);
-  },
-  ajax: function (e, n) {
-    var t = Email.createCORSRequest("GET", e);
-    (t.onload = function () {
-      var e = t.responseText;
-      null != n && n(e);
-    }),
-      t.send();
-  },
-  createCORSRequest: function (e, n) {
-    var t = new XMLHttpRequest();
-    return (
-      "withCredentials" in t
-        ? t.open(e, n, !0)
-        : "undefined" != typeof XDomainRequest
-        ? (t = new XDomainRequest()).open(e, n)
-        : (t = null),
-      t
-    );
-  },
-};
-
-// A partir de aquí esto va en el botón de enviar.
-let resumen = `
-{
-    "Nombre" : ${txtName},
-    "Teléfono" : ${txtTelefono},
-    "Correo" : ${txtemail},
-    "Mensaje" : ${txtMensaje}
-} `;
-
-Email.send({
-  // Configura las opciones de envío de correo electrónico, como el destinatario, asunto, cuerpo, etc.
-  Host: "smtp.elasticemail.com",
-  to: "danieblamessenger@gmail.com",
-  from: "danieblamessenger@gmail.com",
-  subject: "Asunto del correo",
-  body: resumen,
-  // Configura la función de callback para manejar el resultado del envío de correo electrónico
-  // Puedes personalizar esto según tus necesidades
-}).then((message) => alert("correo enviado con exito"));
-//////////// Dani
 
 function validarNombre() {
   if (txtName.value.length < 2) {
@@ -123,13 +63,8 @@ function validateEmail() {
   // Validar el correo electrónico y limpia el input si es correcto
   if (emailRegex.test(email.value)) {
     return true;
-    /* email.classList.remove("invalid-email");
-        email.classList.add("valid-email");
-        email.value = ""; */
   } else {
     return false;
-    /* email.classList.remove("valid-email");
-        email.classList.add("invalid-email"); */
   }
 }
 
@@ -210,6 +145,32 @@ btnEnviar.addEventListener("click", function (event) {
   idTimeout = setTimeout(function () {
     alertValidaciones.style.display = "none";
   }, 5000); //tiempo de mensaje
+  // NO SIRVE EL LINK DE ENVIOS CON SMTP
+  // function sendEmail() {
+  //   let resumen = `{
+  //   "Nombre" : ${txtName},
+  //   "Teléfono" : ${txtTelefono},
+  //   "Correo" : ${txtemail},
+  //   "Mensaje" : ${txtMensaje}
+  //   }`;
+  //   // Configurar los parámetros del correo electrónico
+  //   Email.send({
+  //     Host: "smtp.gmail.com",
+  //     Username: "enviarmailsprueba@gmail.com",
+  //     Password: "C@lamardo2460",
+  //     To: "chito.pepsi4@gmail.com",
+  //     From: "enviarmailsprueba@gmail.com",
+  //     Subject: "Mensaje desde mi sitio web",
+  //     Body: resumen,
+  //   }).then(function (message) {
+  //     alert("Correo electrónico enviado exitosamente");
+  //   });
+  // }
+  if (isValid) {
+    form.submit();
+  }
+
+  console.log(form);
 
   if (isValid) {
     txtName.value = "";
@@ -218,16 +179,6 @@ btnEnviar.addEventListener("click", function (event) {
     txtMensaje.value = "";
   }
 }); //btnEnviar
-
-/* function ValidarNombre(){
-    if(txtName.ariaValueMax.length<2){
-        textName.style.border="solid thin red";
-        alertValidaciones.style.display="block";
-        isValid=false;
-    }else{
-        txtName.style.border="";
-    }
-} */
 
 /* Botón limpiar */
 btnClear.addEventListener("click", function (event) {
