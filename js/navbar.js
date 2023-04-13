@@ -9,36 +9,36 @@ let body = document.getElementsByTagName("body");
   <div class="container-fluid">
     <ul class="navbar-nav row">
       <li class="nav-item col">
-        <a class="navbar-brand m-0" href="/index.html"
+        <a class="navbar-brand m-0" href="index.html"
           ><img src="./src/icons/logoIpn.jpg" class="logoIpn" alt= /></a
         >
       </li>
       <li class="nav-item col">
-        <a class="nav-link fs-5" aria-current="page" href="/categorias.html"
+        <a class="nav-link fs-5" aria-current="page" href="categorias.html"
           >Categorías</a
         >
       </li>
       <li class="nav-item col">
-        <a class="nav-link fs-5" href="/ofertas.html">Promociones</a>
+        <a class="nav-link fs-5" href="ofertas.html">Promociones</a>
       </li>
       <li class="nav-item col">
-        <a class="nav-link fs-5" href="/conocenos.html">Conócenos</a>
+        <a class="nav-link fs-5" href="conocenos.html">Conócenos</a>
       </li>
       <li class="nav-item col">
-        <a class="nav-link fs-5" href="/acercaDeCliente.html">Acerca de cliente</a>
+        <a class="nav-link fs-5" href="acercaDeCliente.html">Acerca de cliente</a>
       </li>
       <li class="nav-item col">
-        <a class="nav-link fs-5" href="/acercaDeEquipo.html">Acerca de equipo</a>
+        <a class="nav-link fs-5" href="acercaDeEquipo.html">Acerca de equipo</a>
       </li>
       <li class="nav-item col">
-        <a class="nav-link fs-5" href="/contacto.html">Contactanos</a>
+        <a class="nav-link fs-5" href="contacto.html">Contáctanos</a>
       </li>
 
       <li class="nav-item col iconosCarritoLogin">
-        <a class="nav-link" href="/carrito.html">
+        <a class="nav-link" href="carrito.html">
           <i class="bi bi-cart3 fs-2"> </i
         ></a>
-        <a class="nav-link" href="/login.html"
+        <a class="nav-link" href="login.html"
           ><i class="bi bi-person-fill fs-2"></i
         ></a>
       </li>
@@ -99,22 +99,22 @@ let body = document.getElementsByTagName("body");
       <div class="offcanvas-body">
         <ul class="justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
-            <a class="nav-link" href="/categorias.html">
+            <a class="nav-link" href="categorias.html">
               <h3>Categorías</h3>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/ofertas.html">
+            <a class="nav-link" href="ofertas.html">
               <h3>Promociones</h3>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/conocenos.html">
+            <a class="nav-link" href="conocenos.html">
               <h3>Conócenos</h3>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/acercaDeCliente.html">
+            <a class="nav-link" href="acercaDeCliente.html">
               <h3>Acerca de cliente</h3>
             </a>
           </li>
@@ -125,7 +125,7 @@ let body = document.getElementsByTagName("body");
           </li>
           <li class="nav-item">
             <a class="nav-link" href="contacto.html">
-              <h3>Contactanos</h3>
+              <h3>Contáctanos</h3>
             </a>
           </li>
         </ul>
