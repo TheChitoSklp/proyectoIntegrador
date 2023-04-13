@@ -20,140 +20,13 @@
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;500&display=swap"
       rel="stylesheet"
     />
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <link rel="stylesheet" href="../css/contacto.css" />
+    
+    <link rel="stylesheet" href="./css/contacto.css" />
+    <link rel="stylesheet" href="./css/style.css">
   </head>
 
   <body>
-    <!-- Navbar de arriba -->
-    <nav class="navbar fixedTop">
-      <div class="container-fluid">
-        <ul class="navbar-nav row">
-          <li class="nav-item col">
-            <a class="navbar-brand m-0" href="../index.html"
-              ><img src="./src/icons/logoIpn.jpg" class="logoIpn" alt= /></a
-            >
-          </li>
-          <li class="nav-item col">
-            <a class="nav-link fs-5" aria-current="page" href="/categorias.html"
-              >Categorías</a
-            >
-          </li>
-          <li class="nav-item col">
-            <a class="nav-link fs-5" href="/ofertas.html">Promociones</a>
-          </li>
-          <li class="nav-item col">
-            <a class="nav-link fs-5" href="/conocenos.html">Conócenos</a>
-          </li>
-          <li class="nav-item col">
-            <a class="nav-link fs-5" href="/acercaDeCliente.html">Acerca de cliente</a>
-          </li>
-          <li class="nav-item col">
-            <a class="nav-link fs-5" href="/acercaDeEquipo.html">Acerca de equipo</a>
-          </li>
-          <li class="nav-item col">
-            <a class="nav-link fs-5" href="/contacto.html">Contactanos</a>
-          </li>
-
-          <li class="nav-item col iconosCarritoLogin">
-            <a class="nav-link" href="/carrito.html">
-              <i class="bi bi-cart3 fs-2"> </i
-            ></a>
-            <a class="nav-link" href="/login.html"
-              ><i class="bi bi-person-fill fs-2"></i
-            ></a>
-          </li>
-        </ul>
-        <section class="hideForm">
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-        </section>
-      </div>
-    </nav>
-    <!-- Navbar de mobile abajo -->
-    <nav class="navbar fixed-bottom hideNavbarMobile">
-      <div class="container-fluid">
-        <a class="navbar-brand m-0" href="/index.html"
-          ><img src="./src/icons/HOME 2.png" alt=""
-        /></a>
-        <a class="navbar-brand m-0" href="/carrito.html"
-          ><img src="./src/icons/carritoB.png" alt=""
-        /></a>
-        <a class="navbar-brand m-0" href="/login.html"
-          ><img src="./src/icons/login.png" alt=""
-        /></a>
-
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasDarkNavbar"
-          aria-controls="offcanvasDarkNavbar"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div
-          class="offcanvas offcanvas-end"
-          tabindex="-1"
-          id="offcanvasDarkNavbar"
-          aria-labelledby="offcanvasDarkNavbarLabel"
-        >
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
-              <img src="./src/icons/logoIpn.jpg" class="logoIpn" alt="" />
-            </h5>
-            <button
-              type="button"
-              class="btn-close btn-close-white"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="offcanvas-body">
-            <ul class="justify-content-end flex-grow-1 pe-3">
-              <li class="nav-item">
-                <a class="nav-link" href="/categorias.html">
-                  <h3>Categorías</h3>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/ofertas.html">
-                  <h3>Promociones</h3>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/conocenos.html">
-                  <h3>Conócenos</h3>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/acercaDeCliente.html">
-                  <h3>Acerca de cliente</h3>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./acercaDeEquipo.html">
-                  <h3>Acerca de equipo</h3>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contacto.html">
-                  <h3>Contactanos</h3>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
+   
 
     <main class="container-fluid">
       <!--Comienza el Main-->
@@ -265,10 +138,10 @@
         </h1>
         <div class="d-flex align-items-center justify-content-center">
           <a href="https://www.instagram.com/"
-            ><img src="../icons/icons8-instagram-96 (1).png" alt=""
+            ><img src="./src/icons/icons8-instagram-96 (1).png" alt=""
           /></a>
           <a href="https://www.facebook.com/"
-            ><img src="../icons/icons8-facebook-nuevo-80.png" alt=""
+            ><img src="./src/icons/icons8-facebook-nuevo-80.png" alt=""
           /></a>
         </div>
         <p class="text-center">
@@ -279,22 +152,8 @@
       </div>
     </main>
 
-    <footer class="container-fluid footerContainer">
-      <section class="row">
-        <span class="card-header col-6">Derechos Reservados© IPN GIRL SHOPPING®</span>
-        <div class="liksFooter col-6">
-          <a href="https://www.facebook.com/" class=""
-            ><i class="bi bi-facebook text-primary fs-2"></i
-          ></a>
-          <a href="https://www.instagram.com/" class=""
-            ><i class="bi bi-instagram text-danger fs-2"></i
-          ></a>
-          <a href="https://wa.me/3121253865/" class=""
-            ><i class="bi bi-whatsapp text-success fs-2"></i
-          ></a>
-        </div>
-      </section>
-    </footer>
+
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
@@ -311,6 +170,8 @@
       crossorigin="anonymous"
     ></script>
     <!-- <script src="https://smtpjs.com/v3/smtp.js"></script> -->
-    <script src="../js/main.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/navbar.js"></script>
+    <script src="./js/footer.js"></script>
   </body>
 </html>
