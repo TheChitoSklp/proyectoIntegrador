@@ -69,7 +69,8 @@ function validateEmail() {
 }
 
 function validarMensaje() {
-  if (txtMensaje.value.length < 20) {
+  // .replace quita los espacios
+  if (txtMensaje.value.replace(/\s+/g, "").length < 20) {
     return false;
     /*  mostrarMensaje('El mensaje es demasiado corto. No debe tener menos de 20 caracteres.', 'error');  */
   } else if (txtMensaje.value.length > 160) {
@@ -80,9 +81,6 @@ function validarMensaje() {
     /*  mostrarMensaje('El mensaje solo puede contener letras y números.', 'error'); */
   } else {
     return true;
-    /* localStorage.setItem('mensaje', txtMensaje.value);
-            mostrarMensaje('Mensaje guardado correctamente.', 'exito'); */
-    // Aquí puedes agregar el código para enviar el formulario
   }
 }
 
@@ -97,7 +95,6 @@ btnEnviar.addEventListener("click", function (event) {
   alertValidaciones.style.display = "none";
 
   /* Validación de campos vacíos */
-  /* console.log("borde: ",txtName.style.border); // Verificar color de borde */
   txtName.value = txtName.value.trim(); //* Eliminar espacios - necesita click
 
   let lista = "Los siguientes campos deben ser llenados correctamente:<ul>";
@@ -145,33 +142,13 @@ btnEnviar.addEventListener("click", function (event) {
   idTimeout = setTimeout(function () {
     alertValidaciones.style.display = "none";
   }, 5000); //tiempo de mensaje
-  // NO SIRVE EL LINK DE ENVIOS CON SMTP
-  // function sendEmail() {
-  //   let resumen = `{
-  //   "Nombre" : ${txtName},
-  //   "Teléfono" : ${txtTelefono},
-  //   "Correo" : ${txtemail},
-  //   "Mensaje" : ${txtMensaje}
-  //   }`;
-  //   // Configurar los parámetros del correo electrónico
-  //   Email.send({
-  //     Host: "smtp.gmail.com",
-  //     Username: "enviarmailsprueba@gmail.com",
-  //     Password: "C@lamardo2460",
-  //     To: "chito.pepsi4@gmail.com",
-  //     From: "enviarmailsprueba@gmail.com",
-  //     Subject: "Mensaje desde mi sitio web",
-  //     Body: resumen,
-  //   }).then(function (message) {
-  //     alert("Correo electrónico enviado exitosamente");
-  //   });
-  // }
+
+  //  Envia el formulario una vez se validan los campos
   if (isValid) {
     form.submit();
   }
-
   console.log(form);
-
+  //Limpia los campos cuando ya se enviaron
   if (isValid) {
     txtName.value = "";
     txtTelefono.value = "";
@@ -205,4 +182,4 @@ txtName.addEventListener("blur", function (event) {
 txtemail.addEventListener("blur", function (event) {
   event.preventDefault();
   txtemail.value = txtemail.value.trim();
-}); /* txtName.blur */
+}); /* txtMail.blur */
