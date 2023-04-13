@@ -31,7 +31,7 @@ let body = document.getElementsByTagName("body");
         <a class="nav-link fs-5" href="acercaDeEquipo.html">Acerca de equipo</a>
       </li>
       <li class="nav-item col">
-        <a class="nav-link fs-5" href="contacto.html">Contactanos</a>
+        <a class="nav-link fs-5" href="contacto.html">Contáctanos</a>
       </li>
 
       <li class="nav-item col iconosCarritoLogin">
@@ -125,7 +125,7 @@ let body = document.getElementsByTagName("body");
           </li>
           <li class="nav-item">
             <a class="nav-link" href="contacto.html">
-              <h3>Contactanos</h3>
+              <h3>Contáctanos</h3>
             </a>
           </li>
         </ul>
