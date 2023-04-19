@@ -70,3 +70,38 @@ let articulos = [
     precio: 89.99,
   },
 ];
+
+const cardsContainer = document.getElementById("cartas");
+function getProducto() {
+            articulos.forEach(articulos => {
+                const card = document.createElement("div");
+                card.classList.add("card");
+            
+                const image = document.createElement("img");
+                image.src = articulos.img;
+                image.alt = articulos.nombre;
+            
+                const title = document.createElement("h2");
+                title.textContent = articulos.nombre;
+            
+                const category = document.createElement("h4")
+                category.textContent = articulos.categoria;
+            
+                const price = document.createElement("p");
+                price.textContent = `$${articulos.precio}`;
+            
+                const description = document.createElement("p");
+                description.textContent = articulos.descripcion.slice(0,100) +"...";
+            
+                card.appendChild(image);
+                card.appendChild(title);
+                card.appendChild(price);
+                card.appendChild(description);
+                card.appendChild(category);
+            
+                cardsContainer.appendChild(card);
+            
+            });
+}
+
+getProducto()
