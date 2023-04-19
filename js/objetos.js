@@ -43,7 +43,7 @@ let articulos = [
   },
   {
     nombre: "Pulsera de plata",
-    img: "https://ae01.alicdn.com/kf/HTB1mmANeGSs3KVjSZPiq6AsiVXap/Pulsera-de-plata-925-para-mujer-brazalete-de-cuentas-esmeriladas-con-uvas-joyer-a-fina-venta.jpg_Q90.jpg_.webp",
+    img: "/src/img/Objetos/pulseraP.jpg",
     categoria: "Accesorios",
     descripcion: "Pulsera de plata de ley con diseño de cadena.",
     precio: 69.99,
@@ -80,9 +80,11 @@ function getProducto() {
                 const image = document.createElement("img");
                 image.src = articulos.img;
                 image.alt = articulos.nombre;
+                image.setAttribute("id", "imagenesCards");
             
                 const title = document.createElement("h2");
                 title.textContent = articulos.nombre;
+                title.setAttribute("id", "tituloCards")
             
                 const category = document.createElement("h4")
                 category.textContent = articulos.categoria;

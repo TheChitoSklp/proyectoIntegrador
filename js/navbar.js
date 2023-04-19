@@ -10,7 +10,7 @@ let body = document.getElementsByTagName("body");
     <ul class="navbar-nav row">
       <li class="nav-item col">
         <a class="navbar-brand m-0" href="index.html"
-          ><img src="./src/icons/logoIpn.jpg" class="logoIpn" alt= /></a
+          ><img src="./src/icons/logoIpn.png" class="logoIpn" alt= /></a
         >
       </li>
       <li class="nav-item col">

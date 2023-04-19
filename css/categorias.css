@@ -1,0 +1,46 @@
+.card {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+    display: inline-block;
+    vertical-align: top;
+    !important;
+}
+
+.card img {
+    max-width: 10rem;
+    max-height: 12rem;
+    !important;
+}
+
+.card h2 {
+    font-size: 18px;
+    margin-top: 0;
+    I !important;
+}
+
+.card p {
+    font-size: 16px;
+    margin: 5px 0;
+    !important;
+}
+.card h4 {
+    font-size: 10px;
+    margin-top: 0;
+    !important;
+}
+
+#imagenesCards{
+    height: 15rem;
+    text-align: center;
+    display: block;
+    width: auto;
+     margin-left: auto;
+     margin-right: auto;
+}
+
+#tituloCards{
+    font-weight: 900;
+}
