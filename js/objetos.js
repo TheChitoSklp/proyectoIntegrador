@@ -1,12 +1,11 @@
 let articulos = [
- 
   {
     nombre: "Camiseta blanca",
     img: "https://img.freepik.com/vector-premium/maqueta-delantera-trasera-camiseta-blanca_6735-271.jpg",
     categoria: "Vestimenta",
     descripcion: "Camiseta de algodón 100% en color blanco, talla M.",
     precio: 20.99,
-    id : 1,
+    id: 1,
   },
   {
     nombre: "Pantalones vaqueros",
@@ -14,7 +13,7 @@ let articulos = [
     categoria: "Vestimenta",
     descripcion: "Pantalones vaqueros clásicos en color azul, talla L.",
     precio: 39.99,
-    id : 2,
+    id: 2,
   },
   {
     nombre: "Zapatillas deportivas",
@@ -22,7 +21,7 @@ let articulos = [
     categoria: "Calzado",
     descripcion: "Zapatillas deportivas en color negro con suela de goma, talla 42.",
     precio: 59.99,
-    id : 3,
+    id: 3,
   },
   {
     nombre: "Chaqueta de cuero",
@@ -30,7 +29,7 @@ let articulos = [
     categoria: "Vestimenta",
     descripcion: "Chaqueta de cuero auténtico en color marrón, talla XL.",
     precio: 149.99,
-    id : 4,
+    id: 4,
   },
   {
     nombre: "Vestido estampado",
@@ -38,7 +37,7 @@ let articulos = [
     categoria: "Vestimenta",
     descripcion: "Vestido corto estampado en tonos azules, talla S.",
     precio: 29.99,
-    id : 5,
+    id: 5,
   },
   {
     nombre: "Bolso de mano",
@@ -46,7 +45,7 @@ let articulos = [
     categoria: "Accesorios",
     descripcion: "Bolso de mano en piel sintética en color rosa, con cierre de cremallera.",
     precio: 24.99,
-    id : 6,
+    id: 6,
   },
   {
     nombre: "Pulsera de plata",
@@ -54,7 +53,7 @@ let articulos = [
     categoria: "Accesorios",
     descripcion: "Pulsera de plata de ley con diseño de cadena.",
     precio: 69.99,
-    id : 7,
+    id: 7,
   },
   {
     nombre: "Sombrero de paja",
@@ -62,7 +61,7 @@ let articulos = [
     categoria: "Accesorios",
     descripcion: "Sombrero de paja con ala ancha en color natural.",
     precio: 12.99,
-    id : 8,
+    id: 8,
   },
   {
     nombre: "Gafas de sol",
@@ -70,7 +69,7 @@ let articulos = [
     categoria: "Accesorios",
     descripcion: "Gafas de sol con montura de pasta en color negro y cristales oscuros.",
     precio: 19.99,
-    id : 9,
+    id: 9,
   },
   {
     nombre: "Reloj de pulsera",
@@ -78,37 +77,37 @@ let articulos = [
     categoria: "Accesorios",
     descripcion: "Reloj de pulsera con correa de cuero marrón y esfera plateada.",
     precio: 89.99,
-    id : 10,
+    id: 10,
   },
 ];
 
 const cardsContainer = document.getElementById("cartas");
 function getProducto() {
-            articulos.forEach(articulos => {
-                const card = document.createElement("div");
-                card.classList.add("card");
-            
-                const image = document.createElement("img");
-                image.src = articulos.img;
-                image.alt = articulos.nombre;
-                image.setAttribute("id", "imagenesCards");
-            
-                const title = document.createElement("h2");
-                title.textContent = articulos.nombre;
-                title.setAttribute("id", "tituloCards")
-            
-                const category = document.createElement("h4")
-                category.textContent = articulos.categoria;
-            
-                const price = document.createElement("p");
-                price.textContent = `$${articulos.precio}`;
-            
-                const description = document.createElement("p");
-                description.textContent = articulos.descripcion.slice(0,100) +"...";
-            
-                const divButton = document.createElement("div");
-                divButton.classList.add("divButton");
-                divButton.innerHTML =                 `
+  articulos.forEach((articulos) => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+
+    const image = document.createElement("img");
+    image.src = articulos.img;
+    image.alt = articulos.nombre;
+    image.setAttribute("id", "imagenesCards");
+
+    const title = document.createElement("h2");
+    title.textContent = articulos.nombre;
+    title.setAttribute("id", "tituloCards");
+
+    const category = document.createElement("h4");
+    category.textContent = articulos.categoria;
+
+    const price = document.createElement("span");
+    price.textContent = `$${articulos.precio}`;
+
+    const description = document.createElement("p");
+    description.textContent = articulos.descripcion.slice(0, 100) + "...";
+
+    const divButton = document.createElement("div");
+    divButton.classList.add("divButton");
+    divButton.innerHTML = `
                 <div>
                   <!-- Button trigger modal -->
                   <button type="button" class="btn btn-primary" 
@@ -140,18 +139,17 @@ function getProducto() {
                   </div>
                 </div>
 
-                `;//TerminaModal                
+                `; //TerminaModal
 
-                card.appendChild(image);
-                card.appendChild(title);
-                card.appendChild(price);
-                card.appendChild(description);
-                card.appendChild(category);
-                card.appendChild(divButton);//Agrego modal                
-            
-                cardsContainer.appendChild(card);
-            
-            });
+    card.appendChild(image);
+    card.appendChild(title);
+    card.appendChild(price);
+    card.appendChild(description);
+    card.appendChild(category);
+    card.appendChild(divButton); //Agrego modal
+
+    cardsContainer.appendChild(card);
+  });
 }
 
-getProducto()
+getProducto();
