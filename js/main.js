@@ -1,26 +1,28 @@
+//Se definen las variables del formulario mediante su ID
 let txtName = document.getElementById("name");
 let txtemail = document.getElementById("txtCorreo");
+const email = document.getElementById("txtCorreo");
 let txtMensaje = document.getElementById("mensaje");
 let txtTelefono = document.getElementById("telefono");
 const form = document.getElementById("formSend");
 console.log(form);
-
+//Se definen los divs ocultos de las alertas
 let alertValidaciones = document.getElementById("alertValidaciones");
 let alertValidacionesTexto = document.getElementById("alertValidacionesTexto");
-
+//Se define el btn enviar y clear en variables
 let btnEnviar = document.getElementById("btnEnviar");
 let btnClear = document.getElementById("btnClear");
-
+//Variable de comprobacion y el timout para quitar las validaciones
 let isValid = true;
 let idTimeout;
-
+// Validacion nombre
 function validarNombre() {
   if (txtName.value.length < 2) {
     return false;
   }
   return true;
-} //Validar Nombre
-
+}
+//Validacon Telefono
 function validarTelefono() {
   if (txtTelefono.value.length == 0) {
     return false;
@@ -52,11 +54,10 @@ function validarTelefono() {
   }
   txtTelefono.style.border = "";
   return true;
-} //Validar teléfono
+}
 
+//Validar mail
 function validateEmail() {
-  // Obtener el valor del input de correo electrónico
-  const email = document.getElementById("txtCorreo");
   //  valida el correo electrónico
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -83,7 +84,7 @@ function validarMensaje() {
     return true;
   }
 }
-
+// Boton comprueba las validaciones
 btnEnviar.addEventListener("click", function (event) {
   event.preventDefault();
   isValid = true;

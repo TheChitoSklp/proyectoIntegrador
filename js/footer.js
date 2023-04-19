@@ -1,6 +1,7 @@
+// Varible que trae main del html
 let main = document.getElementsByTagName("main");
-
-const footer= `
+//Variable que crea el footer
+const footer = `
 <footer class="container-fluid footerContainer">
   <section class="row">
     <span class="card-header col-6">Derechos Reservados© IPN GIRL SHOPPING®</span>
@@ -17,5 +18,5 @@ const footer= `
     </div>
   </section>
 </footer>`;
-
-main[0].insertAdjacentHTML("afterend",footer);
+// Se le inserta el footer despues de terminar el main
+main[0].insertAdjacentHTML("afterend", footer);
