@@ -79,7 +79,7 @@ let articulos = [
     precio: 89.99,
     id: 10,
   },
-];
+]; 
 
 const cardsContainer = document.getElementById("cartas");
 function getProducto() {
@@ -152,4 +152,8 @@ function getProducto() {
   });
 }
 
-getProducto();
+getProducto(articulos);
+
+
+ 
+
