@@ -24,34 +24,17 @@ function validarNombre() {
 }
 //Validacon Telefono
 function validarTelefono() {
-  if (txtTelefono.value.length == 0) {
-    return false;
-  }
-  if (isNaN(txtTelefono.value)) {
-    console.log("no es un número");
-    txtTelefono.style.border = "solid thin red";
-    alertValidacionesTexto.innerHTML += "Se debe escribir un número de 10 dígitos";
-    alertValidaciones.style.display = "block";
-    isValid = false;
-    return false;
-  }
-  if (txtTelefono.value.length > 10) {
-    console.log("es mayor a 10 dígitos");
-    txtTelefono.style.border = "solid thin red";
-    alertValidacionesTexto.innerHTML += "Se debe escribir un número de 10 dígitos";
-    alertValidaciones.style.display = "block";
+  if (
+    txtTelefono.value.length == 0 ||
+    /^(\d)\1+$/.test(txtTelefono.value) ||
+    isNaN(txtTelefono.value) ||
+    txtTelefono.value.length > 10 ||
+    txtTelefono.value.length < 10
+  ) {
     isValid = false;
     return false;
   }
 
-  if (txtTelefono.value.length < 10) {
-    console.log("es menor a 10 dígitos");
-    txtTelefono.style.border = "solid thin red";
-    alertValidacionesTexto.innerHTML += "Se debe escribir un número de 10 dígitos";
-    alertValidaciones.style.display = "block";
-    isValid = false;
-    return false;
-  }
   txtTelefono.style.border = "";
   return true;
 }
@@ -121,7 +104,7 @@ btnEnviar.addEventListener("click", function (event) {
 
   if (!validarTelefono()) {
     txtTelefono.style.border = "solid thin red";
-    lista += "<li>Se debe escribir un número de 10 dígitos</li>";
+    lista += "<li>Se debe escribir un número valido</li>";
     alertValidaciones.style.display = "block";
     isValid = false;
   } else {

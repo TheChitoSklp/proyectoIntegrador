@@ -49,7 +49,7 @@ let articulos = [
   },
   {
     nombre: "Pulsera de plata",
-    img: "./src/img/Objetos/pulseraP.jpg",
+    img: "https://cdn.shopify.com/s/files/1/0012/5662/0117/products/8-2_777abadc-4889-44d7-bb79-9ef723719cbd_3000x.jpg?v=1673890131",
     categoria: "Accesorios",
     descripcion: "Pulsera de plata de ley con diseño de cadena.",
     precio: 69.99,
