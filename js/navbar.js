@@ -1,9 +1,6 @@
-
 let body = document.getElementsByTagName("body");
 
-
-
- const Navbar = `  
+const Navbar = `  
  <!-- Navbar de arriba -->
 <nav class="navbar fixedTop">
   <div class="container-fluid">
@@ -44,7 +41,7 @@ let body = document.getElementsByTagName("body");
       </li>
     </ul>
     <section class="hideForm">
-      <form class="d-flex" role="search">
+      <div class="d-flex" role="search">
         <input
           class="form-control me-2"
           type="search"
@@ -52,7 +49,7 @@ let body = document.getElementsByTagName("body");
           aria-label="Search"
         />
         <button class="btn btn-outline-light" type="submit">Search</button>
-      </form>
+      </div>
     </section>
   </div>
 </nav>
@@ -132,7 +129,6 @@ let body = document.getElementsByTagName("body");
       </div>
     </div>
   </div>
-</nav>`
+</nav>`;
 
-
-body[0].insertAdjacentHTML("afterbegin",Navbar);
+body[0].insertAdjacentHTML("afterbegin", Navbar);

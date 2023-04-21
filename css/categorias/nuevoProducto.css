@@ -1,15 +1,8 @@
-.container {
-  text-align: center;
-}
-#botonAgregar {
-  margin-bottom: 10px;
-}
 form {
   max-width: 600px;
   margin: auto;
   padding: 20px;
-  border: 1px solid #ccc;
-  background-color: #f2f2f2;
+
   font-family: Arial, sans-serif;
 }
 
@@ -34,7 +27,7 @@ textarea {
 }
 
 input[type="file"] {
-  margin-bottom: 5px;
+  margin-bottom: 20px;
 }
 
 select option:first-child {
@@ -44,7 +37,7 @@ select option:first-child {
 input[type="submit"] {
   background-color: #4caf50;
   color: white;
-  padding: 12px 5px;
+  padding: 12px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -57,55 +50,31 @@ input[type="submit"]:hover {
 
 .card {
   display: inline-block;
-  height: 400px;
+  height: 350px;
   width: 300px;
   margin: 20px;
   border: 1px solid #ccc;
   border-radius: 4px;
   overflow: hidden;
-  background-color: #c7c7c7;
+  background-color: #fff;
   box-shadow: 0px 0px 5px #ccc;
 }
 
-.card .image-container {
-  position: relative;
+.card img {
+  display: block;
   width: 100%;
-  height: 50%;
-}
-.delete {
-  position: absolute;
-  top: 0;
-  right: 0;
-  border-radius: 0 0 0 3px;
-  border: none;
-}
-
-.card .image-container img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.card .content-container {
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  height: 50%;
-  justify-content: space-evenly;
+  height: auto;
 }
 
 .card h2 {
   font-size: 24px;
   font-weight: bold;
-  margin: 0;
+  margin: 10px;
 }
 
 .card p {
   font-size: 16px;
-  margin: 10px 0;
+  margin: 10px;
 }
 
 .card .info {
