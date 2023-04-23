@@ -1,168 +1,178 @@
-const miFormulario = document.getElementById("miFormulario");
-const form = document.querySelector("form");
-console.log(form);
-const productos = JSON.parse(localStorage.getItem("productos")) || [];
-const contenedor = document.querySelector("#cartas");
-console.log(contenedor);
-// const alertValidaciones = document.getElementById("alertValidaciones");
-// const alertValidacionesTexto = document.getElementById("alertValidacionesTexto");
-// let isValid = true;
-//--------------------------------------------------
-function mostrarFormulario() {
-  const formulario = document.getElementById("miFormulario");
-  const boton = document.getElementById("botonAgregar");
+// El código va aquí ->
+let nombre = document.getElementById("Name");
+let precios = document.getElementById("precios");
+let descripcion = document.getElementById("descripcion");
+let imagen;
+let btnAgregar = document.getElementById("btnAgregar");
+let btnEliminar = document.getElementById("btnEliminar");
 
-  formulario.classList.toggle("d-none");
-  formulario.classList.toggle("remove");
-  if (formulario.classList.contains("d-none")) {
-    boton.innerHTML = "Agregar <i class='bi bi-plus-circle-fill'></i>";
-  } else {
-    boton.innerHTML = "Cerrar <i class='bi bi-x-circle-fill'></i>";
-  }
-}
-// //-------------validaciones--------------------------
-// function validarNombre() {
-//   if (form.nombre.value.length < 2) {
-//     return false;
-//   }
-//   return true;
-// }
-// function validarMensaje() {
-//   // .replace quita los espacios
-//   if (form.descripcion.value.replace(/\s+/g, "").length < 10) {
-//     return false;
-//   } else if (form.descripcion.value.length > 160) {
-//     return false;
-//   } else {
-//     return true;
-//   }
-// }
-// function validateImage() {
-//   if (!imagen.trim()) {
-//     return false;
-//   } else if (!/\.(jpg|png|gif)$/i.test(imagen)) {
-//     return false;
-//   } else {
-//     return true;
-//   }
-// }
-// function validatePrice() {
-//   if (!form.precio.value.trim()) {
-//     return false;
-//   } else if (isNaN(form.precio.value) || form.precio.value <= 0) {
-//     return false;
-//   } else {
-//     return true;
-//   }
-// }
+let alertValidacionesTexto = document.getElementById("alertValidacionesTexto");
+let alertValidaciones = document.getElementById("alertValidaciones");
 
-// --------------------------------------------------------
+let contenedorTarjetas = document.getElementById("contenedorTarjetas");
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault(); // Evita que el formulario se envíe
+let newId = 1;
+let isValid = true;
+let idTimeout;
+let precio = 0;
 
-  // Obtener los valores de los campos del formulario
-  const nombre = form.nombre.value;
-  const imagen = form.imagen.files[0];
-  const descripcion = form.descripcion.value;
-  const precio = form.precio.value;
-  const categoria = form.categoria.value;
+let datos = JSON.parse(localStorage.getItem("datos")) || []; // aqui se guarda la tabla
+//imagen en codigo
+document.querySelector("#imagen").addEventListener("change", function () {
+  const reader = new FileReader();
 
-  // Crear un objeto con los valores del formulario
-  const producto = {
-    nombre,
-    imagen: URL.createObjectURL(imagen),
-    descripcion,
-    precio,
-    categoria,
-  };
-
-  // ---------------------------------------------------------------------
-
-  // array de productos del local storage
-  let productos = JSON.parse(localStorage.getItem("productos")) || [];
-
-  // Agregar el producto al array
-  productos.push(producto);
-
-  // Almacenar el array actualizado en el local storage
-  localStorage.setItem("productos", JSON.stringify(productos));
-
-  // Limpiar el contenedor de productos antes de agregar las nuevas tarjetas
-  contenedor.innerHTML = "";
-
-  // Crear una tarjeta por cada producto y agregarla al contenedor
-  productos.forEach((producto) => {
-    // Crear los elementos de la tarjeta
-    const card = document.createElement("div");
-    card.classList.add("card");
-
-    const cardImage = document.createElement("div");
-    cardImage.classList.add("image-container");
-
-    const img = document.createElement("img");
-    img.src = producto.imagen;
-    img.alt = producto.nombre;
-
-    cardImage.appendChild(img); // Agregar imagen a cardImage
-
-    const cardInfo = document.createElement("div");
-    cardInfo.classList.add("content-container");
-
-    const h2 = document.createElement("h2");
-    h2.textContent = producto.nombre;
-
-    const p = document.createElement("p");
-    p.textContent = producto.descripcion;
-
-    const info = document.createElement("div");
-    info.classList.add("info");
-
-    const spanPrecio = document.createElement("span");
-    spanPrecio.classList.add("precio");
-    spanPrecio.textContent = `$${producto.precio}`;
-
-    const spanCategoria = document.createElement("span");
-    spanCategoria.classList.add("categoria");
-    spanCategoria.textContent = producto.categoria;
-
-    info.appendChild(spanPrecio);
-    info.appendChild(spanCategoria);
-
-    cardInfo.appendChild(h2);
-    cardInfo.appendChild(p);
-    cardInfo.appendChild(info);
-
-    // Crear el botón de eliminar
-    const botonEliminar = document.createElement("button");
-    botonEliminar.textContent = "X";
-    botonEliminar.classList.add("delete");
-    botonEliminar.addEventListener("click", () => {
-      // Encontrar el índice del objeto que deseas eliminar
-      let index;
-      for (let i = 0; i < productos.length; i++) {
-        if (productos[i].nombre === producto.nombre) {
-          index = i;
-          break;
-        }
-      }
-      // Eliminar el objeto del arreglo en el índice encontrado
-      productos.splice(index, 1);
-      // Actualizar el Local Storage con el arreglo actualizado
-      localStorage.setItem("productos", JSON.stringify(productos));
-      // Eliminar la tarjeta del contenedor
-      card.remove();
-    });
-
-    // Agregar los elementos a la tarjeta
-    card.appendChild(cardImage);
-    card.appendChild(cardInfo);
-    card.appendChild(botonEliminar);
-
-    // Agregar la tarjeta al contenedor
-    contenedor.appendChild(card);
+  reader.addEventListener("load", () => {
+    imagen = reader.result;
   });
 
-  // Limpiar el formulario
-  form.reset();
+  reader.readAsDataURL(this.files[0]);
+}); //imagen codigo
+
+//Delete button
+function eliminarCard(event) {
+  // Obtener una referencia al elemento padre de la tarjeta que contiene el botón eliminar
+  let tarjeta = event.target.closest(".card");
+  console.log(tarjeta);
+  // Obtener el ID de la tarjeta que se va a eliminar
+  let idTarjeta = tarjeta.getAttribute("id");
+  console.log(idTarjeta);
+  // Eliminar la tarjeta del DOM
+
+  // Eliminar la tarjeta de los datos almacenados en el local storage
+  let indice = datos.findIndex((elemento) => elemento.id === idTarjeta);
+  if (indice !== -1) {
+    datos.splice(indice, 1);
+    localStorage.setItem("datos", JSON.stringify(datos));
+  }
+  tarjeta.remove();
+}
+
+//Previsualiza la imagen del input
+function previewImagen(event) {
+  let reader = new FileReader();
+  reader.onload = function () {
+    let vista_previa = document.getElementById("vista-previa");
+    vista_previa.src = reader.result;
+  };
+  reader.readAsDataURL(event.target.files[0]);
+} // prevImagen
+
+function validarPrecio() {
+  if (precios.value.length == 0) {
+    return false;
+  }
+  if (isNaN(precios.value)) {
+    return false;
+  }
+  if (parseFloat(precios.value) <= 0) {
+    return false;
+  }
+  return true;
+}
+
+//VALIDA CAMPOS CON BORDE ROJO  O VERDE
+btnAgregar.addEventListener("click", function (event) {
+  event.preventDefault();
+  isValid = true;
+  clearTimeout(idTimeout);
+  //quita los textos si se cumple todo
+  alertValidacionesTexto.innerHTML = "";
+  //quita el se debe escribir.. estableciendolo en none fijo
+  alertValidaciones.style.display = "none";
+  //   nombre.value = nombre.value.trim(); HACE LO MISMO QUE BLUR
+  let lista = "Los siguientes campos deben ser llenados correctamente:<ul>";
+  //validacion de campo nombre
+  nombre.value.length < 2
+    ? ((nombre.style.border = "solid thin red"),
+      (lista += "<li>Se debe escribir elemento valido</li>"),
+      (alertValidaciones.style.display = "block"),
+      (isValid = false))
+    : (nombre.style.border = "");
+  //validacion campo descripcion
+  descripcion.value.length < 10
+    ? ((descripcion.style.border = "solid thin red"),
+      (lista += "<li>Se debe escribir una descripcion mayor a 10 caracteres</li>"),
+      (alertValidaciones.style.display = "block"),
+      (isValid = false))
+    : (descripcion.style.border = "");
+  //validacion de campo precio
+  if (!validarPrecio()) {
+    precios.style.border = "solid thin red";
+    lista += "<li> Se debe escribir una cantidad valida</li>";
+    alertValidaciones.style.display = "block";
+    isValid = false;
+  } else {
+    precios.style.border = "";
+  }
+  lista += "</ul>";
+  alertValidacionesTexto.insertAdjacentHTML("beforeend", lista);
+
+  idTimeout = setTimeout(() => {
+    alertValidaciones.style.display = "none";
+  }, 3000);
+
+  if (isValid) {
+    newId++;
+    let card = `
+    <div id="${newId}" class="card m-3 col-sm-4 col-md-4 col-lg-3 col-xl-3 ">
+    <img src="${imagen}" alt="img" class="img-fluid fixed-image cardImage">
+      <div class="card-body">
+        <h5 class="card-title">${nombre.value}</h5>
+        <p class="card-price">Precio: ${precios.value}</p>
+        <p class="card-text">${descripcion.value}</p>
+        <button onclick="eliminarCard(event)" class="btn btn-danger btn-sm" id="btnEliminar">Eliminar</button>
+      </div>
+    </div>`;
+
+    let elemento = `{
+    "id"          :     "${newId}", 
+    "imagen"      :     "${imagen}", 
+    "nombre"      :     "${nombre.value}",
+    "precio"      :     "${precios.value}",
+    "descripcion" :     "${descripcion.value}"
+  }`;
+    datos.push(JSON.parse(elemento));
+    localStorage.setItem("datos", JSON.stringify(datos));
+
+    contenedorTarjetas.insertAdjacentHTML("beforeend", card);
+
+    descripcion.value = "";
+    precios.value = "";
+    nombre.value = "";
+    document.getElementById("vista-previa").src = "";
+    nombre.focus();
+  }
+});
+
+// CUANDO TE SALES DEL CAMPO "BLUR" en este caso quita espacios
+precios.addEventListener("blur", function (event) {
+  event.preventDefault();
+  precios.value = precios.value.trim();
+  nombre.value = nombre.value.trim();
+  descripcion.value = descripcion.value.trim();
+});
+
+// carga items al abrir
+window.addEventListener("load", function () {
+  if (localStorage.getItem("datos") !== null) {
+    datos = JSON.parse(localStorage.getItem("datos"));
+
+    let contenedorTarjetas = document.getElementById("contenedorTarjetas");
+
+    datos.forEach((cargado) => {
+      let card = `
+      <div id="${cargado.id}" class="card m-3 col-sm-4 col-md-4 col-lg-3 col-xl-3 ">
+      <img src="${cargado.imagen}" alt="img" class="img-fluid fixed-image cardImage">
+        <div class="card-body">
+          <h5 class="card-title">${cargado.nombre}</h5>
+          <p class="card-price">Precio: ${cargado.precio}</p>
+          <p class="card-text">${cargado.descripcion}</p>
+          <button onclick="eliminarCard(event)" class="btn btn-danger btn-sm" id="btnEliminar">Eliminar</button>
+        </div>
+      </div>
+    `;
+
+      contenedorTarjetas.insertAdjacentHTML("beforeend", card);
+    });
+  }
 });
