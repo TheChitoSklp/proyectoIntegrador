@@ -95,32 +95,32 @@ const Navbar = `
       </div>
       <div class="offcanvas-body">
         <ul class="justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item">
+          <li class="nav-item navList">
             <a class="nav-link" href="categorias.html">
               <h3>Categorías</h3>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item navList">
             <a class="nav-link" href="ofertas.html">
               <h3>Promociones</h3>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item navList">
             <a class="nav-link" href="conocenos.html">
               <h3>Conócenos</h3>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item navList">
             <a class="nav-link" href="acercaDeCliente.html">
               <h3>Acerca de cliente</h3>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item navList">
             <a class="nav-link" href="./acercaDeEquipo.html">
               <h3>Acerca de equipo</h3>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item navList">
             <a class="nav-link" href="contacto.html">
               <h3>Contáctanos</h3>
             </a>

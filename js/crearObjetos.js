@@ -1,15 +1,19 @@
-// El código va aquí ->
+// TODO Cuando recarga la pagina el id de las card vuelve a iniciar en 2
 let nombre = document.getElementById("Name");
 let precios = document.getElementById("precios");
 let descripcion = document.getElementById("descripcion");
 let imagen;
 let btnAgregar = document.getElementById("btnAgregar");
 let btnEliminar = document.getElementById("btnEliminar");
-
+const imagenValidacion = document.getElementById("imagen");
+const iconoImagen = document.querySelector(".btnImagen");
+console.log(iconoImagen);
 let alertValidacionesTexto = document.getElementById("alertValidacionesTexto");
 let alertValidaciones = document.getElementById("alertValidaciones");
 
 let contenedorTarjetas = document.getElementById("contenedorTarjetas");
+
+//modal
 
 let newId = 1;
 let isValid = true;
@@ -24,7 +28,6 @@ document.querySelector("#imagen").addEventListener("change", function () {
   reader.addEventListener("load", () => {
     imagen = reader.result;
   });
-
   reader.readAsDataURL(this.files[0]);
 }); //imagen codigo
 
@@ -84,7 +87,7 @@ btnAgregar.addEventListener("click", function (event) {
   //validacion de campo nombre
   nombre.value.length < 2
     ? ((nombre.style.border = "solid thin red"),
-      (lista += "<li>Se debe escribir elemento valido</li>"),
+      (lista += "<li>Se debe escribir un nombre de 2 o mas letras</li>"),
       (alertValidaciones.style.display = "block"),
       (isValid = false))
     : (nombre.style.border = "");
@@ -95,15 +98,22 @@ btnAgregar.addEventListener("click", function (event) {
       (alertValidaciones.style.display = "block"),
       (isValid = false))
     : (descripcion.style.border = "");
+  //validacion imagen
+  imagenValidacion.files.length === 0
+    ? ((iconoImagen.style.border = "solid thin red"),
+      (lista += "<li>Agrega una imagen</li>"),
+      (alertValidaciones.style.display = "block"),
+      (isValid = false))
+    : (iconoImagen.style.border = "");
+
   //validacion de campo precio
-  if (!validarPrecio()) {
-    precios.style.border = "solid thin red";
-    lista += "<li> Se debe escribir una cantidad valida</li>";
-    alertValidaciones.style.display = "block";
-    isValid = false;
-  } else {
-    precios.style.border = "";
-  }
+  !validarPrecio()
+    ? ((precios.style.border = "solid thin red"),
+      (lista += "<li> Se debe escribir una precio valido</li>"),
+      (alertValidaciones.style.display = "block"),
+      (isValid = false))
+    : (precios.style.border = "");
+
   lista += "</ul>";
   alertValidacionesTexto.insertAdjacentHTML("beforeend", lista);
 
@@ -122,7 +132,9 @@ btnAgregar.addEventListener("click", function (event) {
         <p class="card-text">${descripcion.value}</p>
         <button onclick="eliminarCard(event)" class="btn btn-danger btn-sm" id="btnEliminar">Eliminar</button>
       </div>
-    </div>`;
+    </div>
+
+    `;
 
     let elemento = `{
     "id"          :     "${newId}", 
@@ -131,6 +143,7 @@ btnAgregar.addEventListener("click", function (event) {
     "precio"      :     "${precios.value}",
     "descripcion" :     "${descripcion.value}"
   }`;
+
     datos.push(JSON.parse(elemento));
     localStorage.setItem("datos", JSON.stringify(datos));
 
