@@ -1,0 +1,50 @@
+#inicia{
+    border-radius: 5%;
+   background-color:rgb(107, 26, 29);
+   margin-top: 150px;
+   width: 800px;
+   justify-content: center;
+   border: none !important;
+}
+#formularioIngreso{
+    border: none !important;
+}
+#formSend{
+    width: 900px
+}
+h1{
+    color: white;
+}
+p{
+    color: white;
+}
+
+div{
+    justify-content: center;
+}
+@media (max-width:768px) {
+#formSend{
+    justify-content: center;
+    display:flex
+    border: none !important;
+}
+
+#inicia{
+    border-radius: 5%;
+   background-color:rgb(107, 26, 29);
+   color: white;
+   width: auto;
+   justify-content: center;
+   border: none !important;
+}
+
+#formularioIngreso{
+    border: none !important;
+}
+h1{
+    color: white;
+}
+p{
+    color: white;
+}
+}

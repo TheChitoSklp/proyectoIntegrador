@@ -1,0 +1,59 @@
+#registro{
+    border-radius: 5%;
+   background-color:rgb(107, 26, 29);
+   width: auto;
+   justify-content: center;
+   width: 800px;
+   border: none !important;
+   margin-top: 150px;
+}
+
+#formSend{
+    justify-content: center;
+    display:flex;
+    border: none !important;
+}
+
+#formularioIngreso{
+    width: fit-content;
+    margin: 500px;
+    border: none !important;
+}
+
+h1{
+    color: white;
+    text-align: center;
+    padding: 10px 10px 10px 10px;
+}
+p{
+    color: white;
+    text-align: center;
+}
+
+.form-label{
+    color: white;
+}
+
+@media (max-width:768px) {
+    #formSend{
+        justify-content: center;
+        display:flex;
+        width: auto;
+        border: none !important;
+    }
+    #registro{
+        border-radius: 5%;
+       background-color:rgb(107, 26, 29);
+       color: white;
+       width: auto;
+       justify-content: center;
+       border: none !important;
+    }
+
+    h1{
+        color: white;
+    }
+    p{
+        color: white;
+    }
+    }
