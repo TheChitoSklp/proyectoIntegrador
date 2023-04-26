@@ -56,13 +56,13 @@ const Navbar = `
 <!-- Navbar de mobile abajo -->
 <nav class="navbar fixed-bottom hideNavbarMobile">
   <div class="container-fluid">
-    <a class="navbar-brand m-0" href="/index.html"
+    <a class="navbar-brand m-0" href="index.html"
       ><img src="./src/icons/HOME 2.png" alt=""
     /></a>
-    <a class="navbar-brand m-0" href="/carrito.html"
+    <a class="navbar-brand m-0" href="carrito.html"
       ><img src="./src/icons/carritoB.png" alt=""
     /></a>
-    <a class="navbar-brand m-0" href="/login.html"
+    <a class="navbar-brand m-0" href="login.html"
       ><img src="./src/icons/login.png" alt=""
     /></a>
 
