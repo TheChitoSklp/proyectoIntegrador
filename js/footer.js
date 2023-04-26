@@ -7,13 +7,13 @@ const footer = `
     <span class="card-header col-6">Derechos Reservados© IPN GIRL SHOPPING®</span>
     <div class="liksFooter col-6">
       <a href="https://www.facebook.com/" target="_blank" class=""
-        ><i class="bi bi-facebook text-light fs-2"></i
+        ><i class="yhover bi bi-facebook text-light fs-2"></i
       ></a>
       <a href="https://www.instagram.com/" target="_blank" class=""
-        ><i class="bi bi-instagram text-light fs-2"></i
+        ><i class="yhover bi bi-instagram text-light fs-2"></i
       ></a>
       <a href="https://wa.me/3121253865/" target="_blank" class=""
-        ><i class="bi bi-whatsapp text-light fs-2"></i
+        ><i class="yhover bi bi-whatsapp text-light fs-2"></i
       ></a>
     </div>
   </section>

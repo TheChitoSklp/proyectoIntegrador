@@ -40,7 +40,7 @@ const Navbar = `
         ></a>
       </li>
     </ul>
-    <section class="hideForm">
+    <section class="hideForm p-3">
       <div class="d-flex" role="search">
         <input
           class="form-control me-2"
