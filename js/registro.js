@@ -15,7 +15,9 @@ let btnConfirm = document.getElementById("btnConfirm");
 
 let isValid = true;
 let idTimeout;
-let registros = [];
+//establece registro como lo que tiene el storage en registros o como array vacio
+let registros = JSON.parse(localStorage.getItem("registros")) || [];
+
 //imagen en codigo
 document.querySelector("#imagen").addEventListener("change", function () {
   const reader = new FileReader();
