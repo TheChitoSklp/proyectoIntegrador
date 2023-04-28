@@ -5,6 +5,9 @@
 h2 {
   text-align: center;
 }
+.card {
+  box-shadow: 0 0 7px 4px rgba(0, 0, 0, 0.288);
+}
 .card-title {
   font-weight: bold;
   font-size: 24px;
