@@ -1,0 +1,41 @@
+.popover-btn {
+  border: none;
+  background-color: transparent;
+  color: blue;
+  text-decoration: none;
+  margin: 10px;
+}
+.popover {
+  width: 90%;
+  height: 80%;
+  display: none;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  color: white;
+  background-color: rgba(7, 7, 7, 0.8);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.popover h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.popover span {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.popover p {
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: justify;
+  padding: 0 1rem;
+}

@@ -27,7 +27,6 @@ if (datos.length === 0) {
 } else {
   newId = datos.length;
 }
-console.log(newId);
 
 //quita el bugsito de que si das enter se eliminen objetos
 document.addEventListener("keydown", function (e) {
@@ -152,6 +151,18 @@ btnAgregar.addEventListener("click", function (event) {
         <p class="card-price">Precio: ${precios.value}</p>
         <div class="content">
         <p class="card-text">${descripcion.value}</p>
+        <a class="popover-btn">Leer más </a>
+        <section class="popover">
+        <h3>
+        ${nombre.value}
+        </h3>
+        <span>
+        Precio: <strong>${precios.value}</strong>
+        </span>
+        <p>
+        ${descripcion.value}
+        </p>
+        </section>
         <button onclick="eliminarCard(event)" class="btn btn-danger btn-sm" id="btnEliminar">Eliminar</button>
       </div>
     </div>
@@ -171,6 +182,26 @@ btnAgregar.addEventListener("click", function (event) {
     localStorage.setItem("datos", JSON.stringify(datos));
 
     contenedorTarjetas.insertAdjacentHTML("beforeend", card);
+
+    let buttons = document.querySelectorAll(".popover-btn");
+    let popovers = document.querySelectorAll(".popover");
+
+    buttons.forEach(function (button, index) {
+      let popover = popovers[index];
+      button.addEventListener("click", function (e) {
+        e.preventDefault;
+        popover.style.display = "block";
+      });
+    });
+
+    document.addEventListener("click", function (event) {
+      buttons.forEach(function (button, index) {
+        let popover = popovers[index];
+        if (!button.contains(event.target) && !popover.contains(event.target)) {
+          popover.style.display = "none";
+        }
+      });
+    });
 
     descripcion.value = "";
     precios.value = "";
@@ -202,12 +233,43 @@ window.addEventListener("load", function () {
           <h5 class="card-title">${cargado.nombre}</h5>
           <p class="card-price">Precio: ${cargado.precio}</p>
           <p class="card-text">${cargado.descripcion}</p>
+          <a class="popover-btn">Leer más </a>
+          <section class="popover">
+          <h3>
+          ${cargado.nombre}
+          </h3>
+          <span>
+          Precio: <strong>${cargado.precio}</strong>
+          </span>
+          <p>
+          ${cargado.descripcion}
+          </p>
+          </section>
           <button onclick="eliminarCard(event)" class="btn btn-danger btn-sm" id="btnEliminar">Eliminar</button>
         </div>
       </div>
     `;
-
       contenedorTarjetas.insertAdjacentHTML("beforeend", card);
+    });
+    let buttons = document.querySelectorAll(".popover-btn");
+    let popovers = document.querySelectorAll(".popover");
+
+    buttons.forEach(function (button, index) {
+      let popover = popovers[index];
+      button.addEventListener("click", function (e) {
+        e.preventDefault;
+        popover.style.display = "block";
+      });
+    });
+
+    document.addEventListener("click", function (event) {
+      buttons.forEach(function (button, index) {
+        let popover = popovers[index];
+        if (!button.contains(event.target) && !popover.contains(event.target)) {
+          popover.style.display = "none";
+        }
+      });
     });
   }
 });
+// continua haciendo que no se marquen rojo todo

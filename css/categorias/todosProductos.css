@@ -5,12 +5,21 @@
 h2 {
   text-align: center;
 }
+.card-title {
+  font-weight: bold;
+  font-size: 24px;
+}
+
 .card-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
   min-height: 72px;
   max-height: 72px;
   overflow: hidden;
+  margin: 0;
 }
-.card-text,
+
 .card-price {
   margin-bottom: 10px;
 }
@@ -36,3 +45,4 @@ h2 {
     min-width: 300px;
   }
 }
+/* Estilos para la tarjeta */
