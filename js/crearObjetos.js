@@ -22,13 +22,21 @@ let isValid = true;
 let idTimeout;
 let precio = 0;
 //sii no hay un objeto en el arreglo del local el id sera 0
-
 if (datos.length === 0) {
   newId = 0;
 } else {
   newId = datos.length;
 }
 console.log(newId);
+
+//quita el bugsito de que si das enter se eliminen objetos
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Enter" && e.target.nodeName === "INPUT") {
+    e.preventDefault();
+    return false;
+  }
+});
+
 //imagen en codigo
 document.querySelector("#imagen").addEventListener("change", function () {
   const reader = new FileReader();
@@ -142,6 +150,7 @@ btnAgregar.addEventListener("click", function (event) {
       <div class="card-body">
         <h5 class="card-title">${nombre.value}</h5>
         <p class="card-price">Precio: ${precios.value}</p>
+        <div class="content">
         <p class="card-text">${descripcion.value}</p>
         <button onclick="eliminarCard(event)" class="btn btn-danger btn-sm" id="btnEliminar">Eliminar</button>
       </div>
