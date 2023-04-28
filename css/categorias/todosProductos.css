@@ -31,8 +31,12 @@ h2 {
   margin-top: 0.8rem;
   border-radius: 7px;
 }
+#btnAgregar {
+  border: none;
+}
 .flechaRegresar {
   min-width: 45px;
+  border: none;
 }
 @media (max-width: 1555px) {
   main {
