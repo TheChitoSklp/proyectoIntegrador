@@ -2,25 +2,33 @@
 let nombre = document.getElementById("Name");
 let precios = document.getElementById("precios");
 let descripcion = document.getElementById("descripcion");
+let categoria = document.getElementById("categoria");
 let imagen;
+
 let btnAgregar = document.getElementById("btnAgregar");
 let btnEliminar = document.getElementById("btnEliminar");
 const imagenValidacion = document.getElementById("imagen");
 const iconoImagen = document.querySelector(".btnImagen");
-console.log(iconoImagen);
+
 let alertValidacionesTexto = document.getElementById("alertValidacionesTexto");
 let alertValidaciones = document.getElementById("alertValidaciones");
 
 let contenedorTarjetas = document.getElementById("contenedorTarjetas");
 
-//modal
+let datos = JSON.parse(localStorage.getItem("datos")) || []; // aqui se guarda la tabla
 
-let newId = 1;
+let newId = 0;
 let isValid = true;
 let idTimeout;
 let precio = 0;
+//sii no hay un objeto en el arreglo del local el id sera 0
 
-let datos = JSON.parse(localStorage.getItem("datos")) || []; // aqui se guarda la tabla
+if (datos.length === 0) {
+  newId = 0;
+} else {
+  newId = datos.length;
+}
+console.log(newId);
 //imagen en codigo
 document.querySelector("#imagen").addEventListener("change", function () {
   const reader = new FileReader();
@@ -35,10 +43,8 @@ document.querySelector("#imagen").addEventListener("change", function () {
 function eliminarCard(event) {
   // Obtener una referencia al elemento padre de la tarjeta que contiene el botón eliminar
   let tarjeta = event.target.closest(".card");
-  console.log(tarjeta);
   // Obtener el ID de la tarjeta que se va a eliminar
   let idTarjeta = tarjeta.getAttribute("id");
-  console.log(idTarjeta);
   // Eliminar la tarjeta del DOM
 
   // Eliminar la tarjeta de los datos almacenados en el local storage
@@ -98,6 +104,13 @@ btnAgregar.addEventListener("click", function (event) {
       (alertValidaciones.style.display = "block"),
       (isValid = false))
     : (descripcion.style.border = "");
+  //validacion categoria
+  !categoria.value
+    ? ((categoria.style.border = "solid thin red"),
+      (lista += "<li>Se debe seleccionar una categoria</li>"),
+      (alertValidaciones.style.display = "block"),
+      (isValid = false))
+    : (categoria.style.border = "");
   //validacion imagen
   imagenValidacion.files.length === 0
     ? ((iconoImagen.style.border = "solid thin red"),
@@ -136,12 +149,13 @@ btnAgregar.addEventListener("click", function (event) {
 
     `;
 
-    let elemento = `{
+    let elemento = `{ 
     "id"          :     "${newId}", 
     "imagen"      :     "${imagen}", 
     "nombre"      :     "${nombre.value}",
     "precio"      :     "${precios.value}",
-    "descripcion" :     "${descripcion.value}"
+    "descripcion" :     "${descripcion.value}",
+    "categoria"   :     "${categoria.value}"
   }`;
 
     datos.push(JSON.parse(elemento));
@@ -154,6 +168,7 @@ btnAgregar.addEventListener("click", function (event) {
     nombre.value = "";
     document.getElementById("vista-previa").src = "";
     nombre.focus();
+    categoria.value = "";
   }
 });
 
@@ -169,8 +184,6 @@ precios.addEventListener("blur", function (event) {
 window.addEventListener("load", function () {
   if (localStorage.getItem("datos") !== null) {
     datos = JSON.parse(localStorage.getItem("datos"));
-
-    let contenedorTarjetas = document.getElementById("contenedorTarjetas");
 
     datos.forEach((cargado) => {
       let card = `

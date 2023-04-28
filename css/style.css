@@ -138,11 +138,11 @@ footer .row {
 }
 
 .btn-primary {
-background-color:  rgb(107, 26, 29);
-outline: rgba(107, 26, 29, 0.75);
+  background-color: rgb(107, 26, 29);
+  outline: rgba(107, 26, 29, 0.75);
 }
 
-.btn-primary:hover{
-  background-color: rgb(146, 43, 33)  !important;
+.btn-primary:hover {
+  background-color: rgb(146, 43, 33) !important;
   outline: none !important;
 }

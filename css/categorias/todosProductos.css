@@ -1,0 +1,38 @@
+.btnImagen {
+  border: none;
+  margin: 0.5rem 0;
+}
+h2 {
+  text-align: center;
+}
+.card-text {
+  min-height: 72px;
+  max-height: 72px;
+  overflow: hidden;
+}
+.card-text,
+.card-price {
+  margin-bottom: 10px;
+}
+.cardImage {
+  width: 100%;
+  min-height: 190px;
+  max-height: 190px;
+
+  margin-top: 0.8rem;
+  border-radius: 7px;
+}
+.flechaRegresar {
+  min-width: 45px;
+}
+@media (max-width: 1555px) {
+  main {
+    margin-top: 6.5rem;
+  }
+}
+@media (max-width: 1389px) {
+  .card {
+    max-width: 324px;
+    min-width: 300px;
+  }
+}

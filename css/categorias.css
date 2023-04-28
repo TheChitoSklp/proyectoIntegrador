@@ -28,3 +28,8 @@
   text-align: center;
   color: black;
 }
+@media (max-width: 1517px) {
+  main {
+    margin-top: 6.5rem;
+  }
+}
