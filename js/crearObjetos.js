@@ -17,16 +17,9 @@ let contenedorTarjetas = document.getElementById("contenedorTarjetas");
 
 let datos = JSON.parse(localStorage.getItem("datos")) || []; // aqui se guarda la tabla
 
-let newId = 0;
 let isValid = true;
 let idTimeout;
 let precio = 0;
-//sii no hay un objeto en el arreglo del local el id sera 0
-if (datos.length === 0) {
-  newId = 0;
-} else {
-  newId = datos.length;
-}
 
 //quita el bugsito de que si das enter se eliminen objetos
 document.addEventListener("keydown", function (e) {
@@ -142,9 +135,9 @@ btnAgregar.addEventListener("click", function (event) {
   }, 3000);
 
   if (isValid) {
-    newId++;
+    const timestamp = new Date().getTime();
     let card = `
-    <div id="${newId}" class="card m-3 col-sm-4 col-md-4 col-lg-3 col-xl-3 ">
+    <div id="${timestamp}" class="card m-3 col-sm-4 col-md-4 col-lg-3 col-xl-3 ">
     <img src="${imagen}" alt="img" class="img-fluid fixed-image cardImage">
       <div class="card-body">
         <h5 class="card-title">${nombre.value}</h5>
@@ -170,7 +163,7 @@ btnAgregar.addEventListener("click", function (event) {
     `;
 
     let elemento = `{ 
-    "id"          :     "${newId}", 
+    "id"          :     "${timestamp}", 
     "imagen"      :     "${imagen}", 
     "nombre"      :     "${nombre.value}",
     "precio"      :     "${precios.value}",
@@ -183,6 +176,7 @@ btnAgregar.addEventListener("click", function (event) {
 
     contenedorTarjetas.insertAdjacentHTML("beforeend", card);
 
+    //popers
     let buttons = document.querySelectorAll(".popover-btn");
     let popovers = document.querySelectorAll(".popover");
 
@@ -272,4 +266,3 @@ window.addEventListener("load", function () {
     });
   }
 });
-// continua haciendo que no se marquen rojo todo
