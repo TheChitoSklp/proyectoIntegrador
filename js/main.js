@@ -1,62 +1,46 @@
+//Se definen las variables del formulario mediante su ID
 let txtName = document.getElementById("name");
 let txtemail = document.getElementById("txtCorreo");
+const email = document.getElementById("txtCorreo");
 let txtMensaje = document.getElementById("mensaje");
 let txtTelefono = document.getElementById("telefono");
 const form = document.getElementById("formSend");
 console.log(form);
-
+//Se definen los divs ocultos de las alertas
 let alertValidaciones = document.getElementById("alertValidaciones");
 let alertValidacionesTexto = document.getElementById("alertValidacionesTexto");
-
+//Se define el btn enviar y clear en variables
 let btnEnviar = document.getElementById("btnEnviar");
 let btnClear = document.getElementById("btnClear");
-
+//Variable de comprobacion y el timout para quitar las validaciones
 let isValid = true;
 let idTimeout;
-
+// Validacion nombre
 function validarNombre() {
   if (txtName.value.length < 2) {
     return false;
   }
   return true;
-} //Validar Nombre
-
+}
+//Validacon Telefono
 function validarTelefono() {
-  if (txtTelefono.value.length == 0) {
-    return false;
-  }
-  if (isNaN(txtTelefono.value)) {
-    console.log("no es un número");
-    txtTelefono.style.border = "solid thin red";
-    alertValidacionesTexto.innerHTML += "Se debe escribir un número de 10 dígitos";
-    alertValidaciones.style.display = "block";
-    isValid = false;
-    return false;
-  }
-  if (txtTelefono.value.length > 10) {
-    console.log("es mayor a 10 dígitos");
-    txtTelefono.style.border = "solid thin red";
-    alertValidacionesTexto.innerHTML += "Se debe escribir un número de 10 dígitos";
-    alertValidaciones.style.display = "block";
+  if (
+    txtTelefono.value.length == 0 ||
+    /^(\d)\1+$/.test(txtTelefono.value) ||
+    isNaN(txtTelefono.value) ||
+    txtTelefono.value.length > 10 ||
+    txtTelefono.value.length < 10
+  ) {
     isValid = false;
     return false;
   }
 
-  if (txtTelefono.value.length < 10) {
-    console.log("es menor a 10 dígitos");
-    txtTelefono.style.border = "solid thin red";
-    alertValidacionesTexto.innerHTML += "Se debe escribir un número de 10 dígitos";
-    alertValidaciones.style.display = "block";
-    isValid = false;
-    return false;
-  }
   txtTelefono.style.border = "";
   return true;
-} //Validar teléfono
+}
 
+//Validar mail
 function validateEmail() {
-  // Obtener el valor del input de correo electrónico
-  const email = document.getElementById("txtCorreo");
   //  valida el correo electrónico
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -69,7 +53,8 @@ function validateEmail() {
 }
 
 function validarMensaje() {
-  if (txtMensaje.value.length < 20) {
+  // .replace quita los espacios
+  if (txtMensaje.value.replace(/\s+/g, "").length < 20) {
     return false;
     /*  mostrarMensaje('El mensaje es demasiado corto. No debe tener menos de 20 caracteres.', 'error');  */
   } else if (txtMensaje.value.length > 160) {
@@ -80,12 +65,9 @@ function validarMensaje() {
     /*  mostrarMensaje('El mensaje solo puede contener letras y números.', 'error'); */
   } else {
     return true;
-    /* localStorage.setItem('mensaje', txtMensaje.value);
-            mostrarMensaje('Mensaje guardado correctamente.', 'exito'); */
-    // Aquí puedes agregar el código para enviar el formulario
   }
 }
-
+// Boton comprueba las validaciones
 btnEnviar.addEventListener("click", function (event) {
   event.preventDefault();
   isValid = true;
@@ -97,7 +79,6 @@ btnEnviar.addEventListener("click", function (event) {
   alertValidaciones.style.display = "none";
 
   /* Validación de campos vacíos */
-  /* console.log("borde: ",txtName.style.border); // Verificar color de borde */
   txtName.value = txtName.value.trim(); //* Eliminar espacios - necesita click
 
   let lista = "Los siguientes campos deben ser llenados correctamente:<ul>";
@@ -123,7 +104,7 @@ btnEnviar.addEventListener("click", function (event) {
 
   if (!validarTelefono()) {
     txtTelefono.style.border = "solid thin red";
-    lista += "<li>Se debe escribir un número de 10 dígitos</li>";
+    lista += "<li>Se debe escribir un número valido</li>";
     alertValidaciones.style.display = "block";
     isValid = false;
   } else {
@@ -145,33 +126,13 @@ btnEnviar.addEventListener("click", function (event) {
   idTimeout = setTimeout(function () {
     alertValidaciones.style.display = "none";
   }, 5000); //tiempo de mensaje
-  // NO SIRVE EL LINK DE ENVIOS CON SMTP
-  // function sendEmail() {
-  //   let resumen = `{
-  //   "Nombre" : ${txtName},
-  //   "Teléfono" : ${txtTelefono},
-  //   "Correo" : ${txtemail},
-  //   "Mensaje" : ${txtMensaje}
-  //   }`;
-  //   // Configurar los parámetros del correo electrónico
-  //   Email.send({
-  //     Host: "smtp.gmail.com",
-  //     Username: "enviarmailsprueba@gmail.com",
-  //     Password: "C@lamardo2460",
-  //     To: "chito.pepsi4@gmail.com",
-  //     From: "enviarmailsprueba@gmail.com",
-  //     Subject: "Mensaje desde mi sitio web",
-  //     Body: resumen,
-  //   }).then(function (message) {
-  //     alert("Correo electrónico enviado exitosamente");
-  //   });
-  // }
+
+  //  Envia el formulario una vez se validan los campos
   if (isValid) {
     form.submit();
   }
-
   console.log(form);
-
+  //Limpia los campos cuando ya se enviaron
   if (isValid) {
     txtName.value = "";
     txtTelefono.value = "";
@@ -205,4 +166,4 @@ txtName.addEventListener("blur", function (event) {
 txtemail.addEventListener("blur", function (event) {
   event.preventDefault();
   txtemail.value = txtemail.value.trim();
-}); /* txtName.blur */
+}); /* txtMail.blur */

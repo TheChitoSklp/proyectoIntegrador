@@ -1,0 +1,55 @@
+.btnImagen {
+  border: none;
+  margin: 0.5rem 0;
+}
+h2 {
+  text-align: center;
+}
+.card {
+  box-shadow: 0 0 7px 4px rgba(0, 0, 0, 0.288);
+}
+.card-title {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.card-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  min-height: 72px;
+  max-height: 72px;
+  overflow: hidden;
+  margin: 0;
+}
+
+.card-price {
+  margin-bottom: 10px;
+}
+.cardImage {
+  width: 100%;
+  min-height: 190px;
+  max-height: 190px;
+
+  margin-top: 0.8rem;
+  border-radius: 7px;
+}
+#btnAgregar {
+  border: none;
+}
+.flechaRegresar {
+  min-width: 45px;
+  border: none;
+}
+@media (max-width: 1555px) {
+  main {
+    margin-top: 6.5rem;
+  }
+}
+@media (max-width: 1389px) {
+  .card {
+    max-width: 324px;
+    min-width: 300px;
+  }
+}
+/* Estilos para la tarjeta */
