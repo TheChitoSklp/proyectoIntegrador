@@ -1,11 +1,45 @@
+main {
+    margin-top: 10rem;
+  }
 #inicia{
     border-radius: 5%;
    background-color:rgb(107, 26, 29);
    margin-top: 150px;
    width: 800px;
    justify-content: center;
-   border: none !important;
+   border: black !important;
 }
+#campos {
+    margin-top: 2rem;
+}
+.form-floating {
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    background-color: whitesmoke;
+    border-color: rgba(255, 255, 255, 0.654);
+    color: rgb(3, 3, 3);
+}
+  
+.form-control:focus {
+    background-color: whitesmoke;
+    border-color: rgba(255, 255, 255, 0.4);
+}
+  
+a {
+    color: white;
+}
+.btn-primary {
+    color: rgb(51, 51, 51);
+    background-color: rosybrown;
+    border: blueviolet;
+  }
+  #btnCerrarSesion {
+    background-color: rgba(255, 0, 0, 0.096);
+    border: none;
+    color: blue;
+  }
 #formularioIngreso{
     border: none !important;
 }
@@ -25,26 +59,16 @@ div{
 @media (max-width:768px) {
 #formSend{
     justify-content: center;
-    display:flex
+    display:flex;
     border: none !important;
 }
-
-#inicia{
-    border-radius: 5%;
-   background-color:rgb(107, 26, 29);
-   color: black;
-   width: auto;
-   justify-content: center;
-   border: none !important;
 }
-
-#formularioIngreso{
-    border: none !important;
-}
-h1{
+  body #olvidaste-contrasena {
     color: white;
-}
-p{
+    font-size: 18px;
+  }
+  
+  body #no-tienes-cuenta {
     color: white;
-}
-} 
+  }
+  
