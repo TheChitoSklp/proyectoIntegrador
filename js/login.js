@@ -1,23 +1,15 @@
 
-let txtUsuario = document.getElementById("txtCorreo");
+let txtUsuario = document.getElementById("email");
 let txtPasword = document.getElementById("password");
 
-const btnIngresar = document.getElementById("btnEnviar");
-
-//Usuarios Inventados para verificar la funcion
-/*let usuarios = [
-    { nombre: "usuario1", password: "password1" },
-    { nombre: "usuario2", password: "password2" },
-    { nombre: "usuario3", password: "password3" },
-];
-
-//para obtener los usuarios del localStorage
-localStorage.setItem("usuarios", JSON.stringify(usuarios));*/  
+const btnIngresar = document.getElementById("btnIngresar");
 
 //Botton de Ingresar
 btnIngresar.addEventListener("click", function(event) {
     event.preventDefault();
 
+
+    //se lleva los datos de los campos
     autenticarUsuario(txtUsuario.value, txtPasword.value);
  });
 
@@ -31,8 +23,8 @@ function autenticarUsuario(usuario, password) {
       
       if (usuarioValido) {
         const usuarioVerificado = {
-          txtUsuario: txtUsuario.value,
-          txtPasword: txtPasword.value
+          Usuario: txtUsuario.value,
+          Pasword: txtPasword.value
         };        
         localStorage.setItem("usuarioVerificado", JSON.stringify(usuarioVerificado));        
         console.log("Usuario autenticado correctamente");
