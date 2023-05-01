@@ -48,3 +48,23 @@ p{
     color: white;
 }
 } 
+
+.formulario_correcto {
+	color: #1ed12d;
+	opacity: 1;
+}
+
+.formulario_incorrecto {
+	color: #bb2929;
+}
+
+.formulario__input-error {
+	font-size: 12px;
+	margin-bottom: 0;
+	display: none;
+    counter: white;
+}
+
+.formulario__input-error-activo {
+	display: block;
+}
