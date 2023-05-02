@@ -55,8 +55,7 @@ p {
     border: none !important;
   }
   #registro {
-    border-radius: 5%;
-    background-color: rgb(107, 26, 29);
+    border-radius: 0;
     color: black;
     width: auto;
     justify-content: center;
@@ -69,4 +68,13 @@ p {
   p {
     color: white;
   }
+}
+.colorCheckbox {
+  font-size: 1rem;
+  color: white;
+}
+
+#btnConfirm,
+#btnBorrar {
+  border: none;
 }
