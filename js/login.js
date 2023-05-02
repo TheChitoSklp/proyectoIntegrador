@@ -17,7 +17,7 @@ window.addEventListener("load", function () {
   if (localStorage.getItem("usuarioVerificado") !== null) {
     let loginCargado = JSON.parse(localStorage.getItem("usuarioVerificado"));
     loginInfo.classList.add("d-none");
-    usuarioLogeadoTexto.innerText = `Bienvenido ${loginCargado.Usuario}`;
+    usuarioLogeadoTexto.innerText = `Usuario: ${loginCargado.Usuario}`;
 
     bienvenida.classList.remove("d-none");
   }

@@ -31,8 +31,7 @@ document.querySelector("#imagen").addEventListener("change", function () {
 // Función principal
 btnConfirm.addEventListener("click", function (event) {
   event.preventDefault();
-  let checkboxes = formSend.querySelectorAll('input[type="checkbox"]:checked');
-  console.log();
+  let checkboxes = formSend.querySelector('input[type="radio"]:checked');
   clearTimeout(idTimeout);
   alertValidacionesTexto.innerHTML = "";
   alertValidaciones.style.display = "none";
@@ -108,14 +107,14 @@ btnConfirm.addEventListener("click", function (event) {
       (alertValidacionesTexto.style.color = "black"),
       (isValid = false))
     : (boleta.style.border = "");
-  checkboxes.length !== 1
+  checkboxes === null
     ? ((ownerLabel.style.borderBottom = "1px solid rgba(255, 0, 0, 0.9)"),
       (lista += "<li>Marca una casilla</li>"),
       (alertValidaciones.style.display = "block"),
       (alertValidacionesTexto.style.color = "black"),
       (isValid = false))
     : (ownerLabel.style.borderBottom = "");
-  checkboxes.length !== 1
+  checkboxes === null
     ? (usuarioLabel.style.borderBottom = "1px solid rgba(255, 0, 0, 0.9)")
     : (usuarioLabel.style.borderBottom = "");
 
@@ -129,7 +128,7 @@ btnConfirm.addEventListener("click", function (event) {
   //   Codigo que se ejecuta al cumplir validaciones
   if (isValid) {
     let personas = `{
-    "rol"          :        "${checkboxes[0].value}", 
+    "rol"          :        "${checkboxes.value}", 
     "nombre"          :     "${nombre.value}", 
     "apellido"        :     "${apellido.value}", 
     "password"        :     "${password.value}",
@@ -149,8 +148,8 @@ btnConfirm.addEventListener("click", function (event) {
 
 // Función para limpiar campos
 function limpiarCampos() {
-  document.getElementById("ownerLabel").value = "";
-  document.getElementById("usuarioLabel").value = "";
+  document.getElementById("owner").checked = false;
+  document.getElementById("usuarioComun").checked = false;
   document.getElementById("name").value = "";
   document.getElementById("Nombre").value = "";
   document.getElementById("telefono").value = "";
