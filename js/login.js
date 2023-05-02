@@ -13,6 +13,16 @@ const validaciones = {
   correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 };
 
+window.addEventListener("load", function () {
+  if (localStorage.getItem("usuarioVerificado") !== null) {
+    let loginCargado = JSON.parse(localStorage.getItem("usuarioVerificado"));
+    loginInfo.classList.add("d-none");
+    usuarioLogeadoTexto.innerText = `Bienvenido ${loginCargado.Usuario}`;
+
+    bienvenida.classList.remove("d-none");
+  }
+});
+
 //funcion autenticar Usuario Ingresado
 function autenticarUsuario(usuario, password) {
   const usuarios = JSON.parse(localStorage.getItem("registros")); //
@@ -34,6 +44,7 @@ function autenticarUsuario(usuario, password) {
         .querySelector("#dbtn .formulario__input-error")
         .classList.remove("formulario__input-error-activo");
       formulario.reset();
+      window.location.href = "../index.html";
       //miFormularioLogin.reset();
     } else {
       console.log("Usuario no válido");
