@@ -88,3 +88,8 @@ body #no-tienes-cuenta {
 .formulario__input-error-activo {
   display: block;
 }
+#btnCerrarSesion {
+  background-color: transparent;
+  border: none;
+  color: blue;
+}

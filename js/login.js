@@ -121,3 +121,9 @@ formulario.addEventListener("submit", (e) => {
       .classList.add("formulario__input-error-activo");
   }
 });
+
+function logout() {
+  localStorage.removeItem("usuarioVerificado");
+  loginInfo.classList.remove("d-none");
+  bienvenida.classList.add("d-none");
+}
