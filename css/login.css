@@ -27,9 +27,6 @@ main {
     border-color: rgba(255, 255, 255, 0.4);
 }
   
-a {
-    color: white;
-}
 .btn-primary {
     color: rgb(51, 51, 51);
     background-color: rosybrown;
@@ -72,3 +69,22 @@ div{
     color: white;
   }
   
+  .formulario_correcto {
+	color: #1ed12d;
+	opacity: 1;
+}
+
+.formulario_incorrecto {
+	color: #bb2929;
+}
+
+.formulario__input-error {
+	font-size: 12px;
+	margin-bottom: 0;
+	display: none;
+    counter: white;
+}
+
+.formulario__input-error-activo {
+	display: block;
+}
