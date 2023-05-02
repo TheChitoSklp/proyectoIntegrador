@@ -5,7 +5,7 @@ main {
   border-radius: 20px;
   background-color: rgb(107, 26, 29);
   margin-top: 150px;
-  width: 800px;
+  max-width: 700px;
   justify-content: center;
   border: black !important;
 }
@@ -58,6 +58,9 @@ div {
     justify-content: center;
     display: flex;
     border: none !important;
+  }
+  #inicia {
+    border-radius: 0;
   }
 }
 body #olvidaste-contrasena {
