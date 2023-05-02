@@ -82,7 +82,7 @@ body #no-tienes-cuenta {
   font-size: 12px;
   margin-bottom: 0;
   display: none;
-  counter: white;
+  color: rgb(255, 0, 0);
 }
 
 .formulario__input-error-activo {
