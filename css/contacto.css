@@ -1,0 +1,9 @@
+#btnEnviar,
+#btnClear {
+  border: none;
+  margin: 5px;
+}
+form input,
+#mensaje {
+  margin: 7px;
+}
