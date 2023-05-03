@@ -6,9 +6,9 @@ const Navbar = `
     <ul class="navbar-nav row">
       <li class="nav-item col">
         <a class="navbar-brand m-0" href="index.html"
-          ><img src="./src/icons/logoIpn.png" class="logoIpn" alt= /></a
+          ><img src="./src/icons/logoIpnTrans.png" class="logoIpn" alt= /></a
         >
-      </li>
+
       <li class="nav-item col">
         <a class="nav-link fs-5" aria-current="page" href="categorias.html"
           >Categorías</a
@@ -83,9 +83,11 @@ const Navbar = `
       aria-labelledby="offcanvasDarkNavbarLabel"
     >
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
-          <img src="./src/icons/logoIpn.jpg" class="logoIpn" alt="" />
-        </h5>
+
+      <a class="navbar-brand m-0" href="index.html"
+        ><img src="./src/icons/logoIpnTrans.png" class="logoIpn" alt= /></a
+      >
+   
         <button
           type="button"
           class="btn-close btn-close-white"
