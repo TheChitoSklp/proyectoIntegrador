@@ -140,7 +140,7 @@
                 <div class="col-md-12">
                   <div class="form-floating">
                     <input
-                      type="text"
+                      type="email"
                       class="form-control"
                       id="email"
                       value=""
@@ -149,22 +149,27 @@
                     <label for="email">Correo "debe contener @ y un dominio válido"</label>
                   </div>
                 </div>
-              </div>
-              <div class="mb-3">
-                <div class="col-md-12">
-                  <div class="form-floating">
-                    <input
-                      type="tel"
-                      class="form-control"
-                      id="telefono"
-                      value=""
-                      name="telefono"
-                      required
-                    />
-                    <label for="telefono">Teléfono "3121223324"</label>
-                  </div>
+                <div id="correoAlerta" class="correoExistente">
+                  <span>El correo ya existe</span>
                 </div>
               </div>
+            </div>
+            <div class="mb-3">
+              <div class="col-md-12">
+                <div class="form-floating">
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="telefono"
+                    value=""
+                    name="telefono"
+                    required
+                  />
+                  <label for="telefono">Teléfono "3121223324"</label>
+                </div>
+              </div>
+            </div>
+            <div class="radioInput col-11 col-md-5 ms-2">
               <label for="rol" class="colorRadio">Rol:</label>
               <input type="radio" id="owner" name="rol" value="vendedor" />
               <label id="ownerLabel" for="owner" class="colorRadio">Vendedor</label>
@@ -172,7 +177,6 @@
               <input type="radio" id="usuarioComun" name="rol" value="comprador" />
               <label id="usuarioLabel" for="usuarioComun" class="colorRadio">Comprador</label>
             </div>
-
             <div class="mb-3">
               <div class="col-md-12">
                 <label for="imagen" class="form-label colorCheckbox">Identificación</label>

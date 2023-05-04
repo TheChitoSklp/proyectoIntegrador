@@ -27,7 +27,29 @@ document.querySelector("#imagen").addEventListener("change", function () {
   });
   reader.readAsDataURL(this.files[0]);
 }); //imagen codigo
+//Comprueba y deshabilita el boton registro si ya existe el email
+email.addEventListener("input", () => {
+  const usuarioCoincidente = registros.find((usuario) => {
+    return usuario.correo === email.value;
+  });
 
+  if (usuarioCoincidente) {
+    btnConfirm.disabled = true;
+    correoAlerta.style.display = "block";
+    btnConfirm.style.background = "red";
+  } else {
+    btnConfirm.disabled = false;
+    btnConfirm.style.background = "rgb(107, 26, 29)";
+    correoAlerta.style.display = "none";
+  }
+});
+
+// usuario.correo === email.value
+//       ? ((btnConfirm.disabled = true),
+//         (correoAlerta.style.display = "block"),
+//         (btnConfirm.style.background = "red"))
+//       : (btnConfirm.disabled = false),
+//       (btnConfirm.style.background = "rgb(107, 26, 29)");
 // Función principal
 btnConfirm.addEventListener("click", function (event) {
   event.preventDefault();
@@ -137,7 +159,7 @@ btnConfirm.addEventListener("click", function (event) {
     "telefono"        :     "${txtTelefono.value}",
     "imagen"          :     "${imagen}"
   }`;
-    console.log(personas);
+
     registros.push(JSON.parse(personas));
     localStorage.setItem("registros", JSON.stringify(registros));
     limpiarCampos();
@@ -278,7 +300,7 @@ function validarBoleta() {
 //Validar mail
 function validarEmail() {
   //  valida el email electrónico
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailRegex = /^\w+@\w+\.\w{2,3}$/;
 
   // Validar el email electrónico y limpia el input si es correcto
   if (emailRegex.test(email.value)) {
