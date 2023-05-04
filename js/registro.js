@@ -120,7 +120,8 @@ btnConfirm.addEventListener("click", function (event) {
       (alertValidacionesTexto.style.color = "black"),
       (isValid = false))
     : (email.style.border = "");
-
+  console.log(email.value);
+  console.log(validarEmail());
   //validacion de campo Boleta
   !validarBoleta()
     ? ((boleta.style.border = "solid 2px red"),
@@ -163,6 +164,7 @@ btnConfirm.addEventListener("click", function (event) {
     registros.push(JSON.parse(personas));
     localStorage.setItem("registros", JSON.stringify(registros));
     limpiarCampos();
+    window.location.href = "../login.html";
   }
   //   ---------------------------------------------
 });
@@ -300,8 +302,7 @@ function validarBoleta() {
 //Validar mail
 function validarEmail() {
   //  valida el email electrónico
-  const emailRegex = /^\w+@\w+\.\w{2,3}$/;
-
+  const emailRegex = /^[\w.]+@\w+\.\w{2,3}$/;
   // Validar el email electrónico y limpia el input si es correcto
   if (emailRegex.test(email.value)) {
     return true;
