@@ -3,6 +3,9 @@ let txtPasword = document.getElementById("password");
 const formulario = document.getElementById("formSend");
 const inputs = document.querySelectorAll("#formSend input");
 
+let registros = JSON.parse(localStorage.getItem("registros")) || [];
+let usuarioLoged = JSON.parse(localStorage.getItem("usuarioVerificado")) || [];
+
 const campos = {
   password: false,
   correo: false,
@@ -18,10 +21,17 @@ window.addEventListener("load", function () {
     let loginCargado = JSON.parse(localStorage.getItem("usuarioVerificado"));
     loginInfo.classList.add("d-none");
     usuarioLogeadoTexto.innerText = `Usuario: ${loginCargado.Usuario}`;
-
     bienvenida.classList.remove("d-none");
   }
+  const usuarioCoincidente = registros.find((usuario) => {
+    return usuario.correo === usuarioLoged.Usuario;
+  });
+
+  if (usuarioCoincidente.rol === "vendedor") {
+    vistaVendedor.classList.remove("d-none");
+  }
 });
+//Condicion para agregar productos
 
 //funcion autenticar Usuario Ingresado
 function autenticarUsuario(usuario, password) {
@@ -39,21 +49,19 @@ function autenticarUsuario(usuario, password) {
         Pasword: txtPasword.value,
       };
       localStorage.setItem("usuarioVerificado", JSON.stringify(usuarioVerificado));
-      console.log("Usuario autenticado correctamente");
+
       document
         .querySelector("#dbtn .formulario__input-error")
         .classList.remove("formulario__input-error-activo");
       formulario.reset();
-      window.location.href = "../index.html";
+      window.location.href = "../login.html";
       //miFormularioLogin.reset();
     } else {
-      console.log("Usuario no válido");
       document
         .querySelector("#dbtn .formulario__input-error")
         .classList.add("formulario__input-error-activo");
     }
   } else {
-    console.log("No hay usuarios almacenados");
     document
       .querySelector("#dbtn .formulario__input-error")
       .classList.add("formulario__input-error-activo");

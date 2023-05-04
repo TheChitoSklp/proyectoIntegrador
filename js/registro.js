@@ -44,13 +44,6 @@ email.addEventListener("input", () => {
   }
 });
 
-// usuario.correo === email.value
-//       ? ((btnConfirm.disabled = true),
-//         (correoAlerta.style.display = "block"),
-//         (btnConfirm.style.background = "red"))
-//       : (btnConfirm.disabled = false),
-//       (btnConfirm.style.background = "rgb(107, 26, 29)");
-// Función principal
 btnConfirm.addEventListener("click", function (event) {
   event.preventDefault();
   let checkboxes = formSend.querySelector('input[type="radio"]:checked');
