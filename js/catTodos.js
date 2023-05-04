@@ -4,10 +4,8 @@ window.addEventListener("load", function () {
   if (localStorage.getItem("datos") !== null) {
     datos = JSON.parse(localStorage.getItem("datos"));
 
-    datos
-      .filter((item) => item.categoria === "mascotas")
-      .forEach((cargado) => {
-        let card = `
+    datos.forEach((cargado) => {
+      let card = `
         <div id="${cargado.id}" class="card m-3 col-sm-4 col-md-4 col-lg-3 col-xl-3 ">
         <img src="${cargado.imagen}" alt="img" class="img-fluid fixed-image cardImage">
           <div class="card-body">
@@ -33,8 +31,8 @@ window.addEventListener("load", function () {
         </div>
       `;
 
-        contenedorTarjetas.insertAdjacentHTML("beforeend", card);
-      });
+      contenedorTarjetas.insertAdjacentHTML("beforeend", card);
+    });
     articulos.forEach((cargado) => {
       let card = `
         <div id="${cargado.id}" class="card m-3 col-sm-4 col-md-4 col-lg-3 col-xl-3 ">
