@@ -61,12 +61,11 @@ body {
   display: none;
 }
 .logoIpn {
-  width: 3rem;
-  border: 1px whitesmoke solid;
+  width: 5rem;
   border-radius: 50%;
 }
 .logoIpn:hover {
-  box-shadow: 0 0 10px rgb(254, 254, 254);
+  filter: drop-shadow(0 0 10px rgba(240, 231, 231, 0.5));
 }
 .iconosCarritoLogin {
   display: flex;
@@ -100,7 +99,7 @@ body {
 }
 /* Cards */
 main {
-  margin-top: 5rem;
+  margin-top: 7rem;
   margin-bottom: 7rem;
 }
 

@@ -1,74 +1,133 @@
+:root {
+  --first-color: rgb(107, 26, 29);
+  --first-alpha-color: rgba(107, 26, 29, 0.75);
+  --second-color: rgb(169, 64, 71);
+  --second-alpha-color: rgba(169, 64, 71, 0.75);
+  --third-color: rgb(248, 162, 176);
+  --third-alpha-color: rgba(248, 162, 176, 0.75);
+  --fourth-color: rgb(228, 206, 219);
+  --fourth-alpha-color: rgba(228, 206, 219, 0.75);
+  --fifth-color: rgb(224, 93, 96);
+  --fifth-alpha-color: rgba(224, 93, 96, 0.75);
+  --white-color: rgb(220, 220, 220);
+}
 main {
-    margin-top: 10rem;
-  }
-#inicia{
-    border-radius: 5%;
-   background-color:rgb(107, 26, 29);
-   margin-top: 150px;
-   width: 800px;
-   justify-content: center;
-   border: black !important;
+  margin-top: 10rem;
+}
+#inicia {
+  border-radius: 20px;
+  background-color: rgb(107, 26, 29);
+  margin-top: 150px;
+  max-width: 700px;
+  justify-content: center;
+  border: black !important;
 }
 #campos {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 .form-floating {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .form-control {
-    background-color: whitesmoke;
-    border-color: rgba(255, 255, 255, 0.654);
-    color: rgb(3, 3, 3);
-}
-  
-.form-control:focus {
-    background-color: whitesmoke;
-    border-color: rgba(255, 255, 255, 0.4);
-}
-  
-a {
-    color: white;
-}
-.btn-primary {
-    color: rgb(51, 51, 51);
-    background-color: rosybrown;
-    border: blueviolet;
-  }
-  #btnCerrarSesion {
-    background-color: rgba(255, 0, 0, 0.096);
-    border: none;
-    color: blue;
-  }
-#formularioIngreso{
-    border: none !important;
-}
-#formSend{
-    width: 900px
-}
-h1{
-    color: white;
-}
-p{
-    color: white;
+  background-color: whitesmoke;
+  border-color: rgba(255, 255, 255, 0.654);
+  color: rgb(3, 3, 3);
 }
 
-div{
-    justify-content: center;
+.form-control:focus {
+  background-color: whitesmoke;
+  border-color: rgba(255, 255, 255, 0.4);
 }
-@media (max-width:768px) {
-#formSend{
+
+.btn-primary {
+  color: rgb(51, 51, 51);
+  background-color: rosybrown;
+  border: blueviolet;
+}
+#btnCerrarSesion {
+  background-color: rgba(255, 0, 0, 0.096);
+  border: none;
+  color: blue;
+}
+#formularioIngreso {
+  border: none !important;
+}
+#formSend {
+  width: 900px;
+}
+h1 {
+  color: white;
+}
+p {
+  color: white;
+}
+
+div {
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  #formSend {
     justify-content: center;
-    display:flex;
+    display: flex;
     border: none !important;
-}
-}
-  body #olvidaste-contrasena {
-    color: white;
-    font-size: 18px;
   }
-  
-  body #no-tienes-cuenta {
-    color: white;
+  #inicia {
+    border-radius: 0;
   }
-  
+}
+body #olvidaste-contrasena {
+  color: white;
+  font-size: 18px;
+}
+
+body #no-tienes-cuenta {
+  color: white;
+}
+
+.formulario_correcto {
+  color: #1ed12d;
+  opacity: 1;
+}
+
+.formulario_incorrecto {
+  color: #bb2929;
+}
+
+.formulario__input-error {
+  font-size: 12px;
+  margin-bottom: 0;
+  display: none;
+  color: rgb(255, 0, 0);
+}
+
+.formulario__input-error-activo {
+  display: block;
+}
+#btnCerrarSesion {
+  background-color: rgb(240, 23, 23);
+  border: none;
+  color: white;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  margin: 1rem;
+  transition: transform 0.2s ease-in-out;
+}
+#btnCerrarSesion:hover {
+  transform: scale(1.1);
+}
+.linkAddIcon {
+  text-decoration: none;
+  background-color: var(--third-alpha-color);
+
+  border-radius: 20px;
+  margin: 1rem;
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.linkAddIcon:hover {
+  transform: scale(1.1);
+}
+#bienvenida {
+  border-radius: 20px;
+}

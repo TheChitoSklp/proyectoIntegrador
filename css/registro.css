@@ -55,8 +55,7 @@ p {
     border: none !important;
   }
   #registro {
-    border-radius: 5%;
-    background-color: rgb(107, 26, 29);
+    border-radius: 0;
     color: black;
     width: auto;
     justify-content: center;
@@ -69,4 +68,26 @@ p {
   p {
     color: white;
   }
+}
+.colorCheckbox {
+  font-size: 1rem;
+  color: white;
+}
+
+#btnConfirm,
+#btnBorrar {
+  border: none;
+}
+.correoExistente {
+  text-align: center;
+  color: rgba(255, 0, 0, 0.911);
+  display: none;
+}
+.radioInput {
+  border: 1px solid white;
+  background-color: rgb(230, 229, 229);
+  border-radius: 5px;
+}
+input {
+  max-width: 98%;
 }

@@ -1,5 +1,4 @@
 let body = document.getElementsByTagName("body");
-
 const Navbar = `  
  <!-- Navbar de arriba -->
 <nav class="navbar fixedTop">
@@ -7,9 +6,9 @@ const Navbar = `
     <ul class="navbar-nav row">
       <li class="nav-item col">
         <a class="navbar-brand m-0" href="index.html"
-          ><img src="./src/icons/logoIpn.png" class="logoIpn" alt= /></a
+          ><img src="./src/icons/logoIpnTrans.png" class="logoIpn" alt= /></a
         >
-      </li>
+
       <li class="nav-item col">
         <a class="nav-link fs-5" aria-current="page" href="categorias.html"
           >Categorías</a
@@ -43,12 +42,13 @@ const Navbar = `
     <section class="hideForm p-3">
       <div class="d-flex" role="search">
         <input
+          id="search"
           class="form-control me-2"
           type="search"
           placeholder="Search"
           aria-label="Search"
         />
-        <button class="btn btn-outline-light" type="submit">Search</button>
+        <button onclick="buscar()" class="btn btn-outline-light" type="submit">Search</button>
       </div>
     </section>
   </div>
@@ -83,9 +83,11 @@ const Navbar = `
       aria-labelledby="offcanvasDarkNavbarLabel"
     >
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
-          <img src="./src/icons/logoIpn.jpg" class="logoIpn" alt="" />
-        </h5>
+
+      <a class="navbar-brand m-0" href="index.html"
+        ><img src="./src/icons/logoIpnTrans.png" class="logoIpn" alt= /></a
+      >
+   
         <button
           type="button"
           class="btn-close btn-close-white"
@@ -132,3 +134,48 @@ const Navbar = `
 </nav>`;
 
 body[0].insertAdjacentHTML("afterbegin", Navbar);
+
+function buscarEnLocalStorage(search) {
+  const resultados = [];
+  const searchMinusculas = search.toLowerCase();
+
+  datos.forEach((dato) => {
+    const nombreMinusculas = dato.nombre.toLowerCase();
+    if (nombreMinusculas.includes(searchMinusculas)) {
+      resultados.push(dato);
+    }
+  });
+
+  return resultados;
+}
+function buscar() {
+  const search = document.getElementById("search").value;
+  const resultados = buscarEnLocalStorage(search);
+  contenedorTarjetas.innerHTML = "";
+  resultados.forEach((objeto) => {
+    let card = `
+    <div id="${objeto.id}" class="card m-3 col-sm-4 col-md-4 col-lg-3 col-xl-3 ">
+    <img src="${objeto.imagen}" alt="img" class="img-fluid fixed-image cardImage">
+      <div class="card-body">
+        <h5 class="card-title">${objeto.nombre}</h5>
+        <p class="card-price">Precio: ${objeto.precio}</p>
+        <p class="card-text">${objeto.descripcion}</p>
+        <a class="popover-btn">Leer más </a>
+        <section class="popover">
+        <h3>
+        ${objeto.nombre}
+        </h3>
+        <span>
+        Precio: <strong>${objeto.precio}</strong>
+        </span>
+        <p>
+        ${objeto.descripcion}
+        </p>
+        </section>
+        <button onclick="eliminarCard(event)" class="btn btn-danger btn-sm" id="btnEliminar">Eliminar</button>
+      </div>
+    </div>
+  `;
+    contenedorTarjetas.insertAdjacentHTML("beforeend", card);
+  });
+}

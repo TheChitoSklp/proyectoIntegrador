@@ -27,101 +27,124 @@ document.querySelector("#imagen").addEventListener("change", function () {
   });
   reader.readAsDataURL(this.files[0]);
 }); //imagen codigo
+//Comprueba y deshabilita el boton registro si ya existe el email
+email.addEventListener("input", () => {
+  const usuarioCoincidente = registros.find((usuario) => {
+    return usuario.correo === email.value;
+  });
 
-document.addEventListener("DOMContentLoaded", function () {
-  //Inicio DOM
+  if (usuarioCoincidente) {
+    btnConfirm.disabled = true;
+    correoAlerta.style.display = "block";
+    btnConfirm.style.background = "red";
+  } else {
+    btnConfirm.disabled = false;
+    btnConfirm.style.background = "rgb(107, 26, 29)";
+    correoAlerta.style.display = "none";
+  }
+});
 
-  // Función principal
-  btnConfirm.addEventListener("click", function (event) {
-    event.preventDefault(); // Evita que el formulario se envíe
-    clearTimeout(idTimeout);
-    //quita los textos si se cumple todo
-    alertValidacionesTexto.innerHTML = "";
-    //quita el se debe escribir.. estableciendolo en none fijo
+btnConfirm.addEventListener("click", function (event) {
+  event.preventDefault();
+  let checkboxes = formSend.querySelector('input[type="radio"]:checked');
+  clearTimeout(idTimeout);
+  alertValidacionesTexto.innerHTML = "";
+  alertValidaciones.style.display = "none";
+
+  let lista = "Los siguientes campos deben ser llenados correctamente:<ul>";
+  isValid = true;
+  //SI LA FUNCION DA FALSE SE QUITA EL BORDE SI DA TRUE SE PONE EL ALERT Y EL BORDE ROJO
+  //validacion de campo nombre
+  !validarNombre()
+    ? ((nombre.style.border = "solid 2px red"),
+      (lista += "<li>Se debe escribir un nombre de 2 o mas letras</li>"),
+      (alertValidaciones.style.display = "block"),
+      (alertValidacionesTexto.style.color = "black"),
+      (isValid = false))
+    : (nombre.style.border = "");
+  //validacion de campo nombre
+  !validarApellido()
+    ? ((apellido.style.border = "solid 2px red"),
+      (lista += "<li>Se debe escribir un apellido de 2 o mas letras</li>"),
+      (alertValidaciones.style.display = "block"),
+      (alertValidacionesTexto.style.color = "black"),
+      (isValid = false))
+    : (apellido.style.border = "");
+
+  //validacion campo Password
+  !validarPassword()
+    ? ((password.style.border = "solid 2px red"),
+      (lista += "<li>Comprueba tu password</li>"),
+      (alertValidaciones.style.display = "block"),
+      (alertValidacionesTexto.style.color = "black"),
+      (isValid = false))
+    : (password.style.border = "");
+  //confirmar pass
+  !validarpasswordConfirm()
+    ? ((passwordConfirm.style.border = "solid 2px red"),
+      (lista += "<li>La Contraseña debe ser igual</li>"),
+      (alertValidaciones.style.display = "block"),
+      (alertValidacionesTexto.style.color = "black"),
+      (isValid = false))
+    : (passwordConfirm.style.border = "");
+
+  //validacion imagen
+  imagenBorde.files.length === 0
+    ? ((imagenBorde.style.border = "solid thin red"),
+      (lista += "<li>Agrega una imagen</li>"),
+      (alertValidaciones.style.display = "block"),
+      (isValid = false))
+    : (imagenBorde.style.border = "");
+
+  //validacion de campo precio
+  !validarTelefono()
+    ? ((txtTelefono.style.border = "solid 2px red"),
+      (lista += "<li> Se debe escribir una precio valido</li>"),
+      (alertValidaciones.style.display = "block"),
+      (alertValidacionesTexto.style.color = "black"),
+      (isValid = false))
+    : (txtTelefono.style.border = "");
+
+  //validacion de campo Email
+  !validarEmail()
+    ? ((email.style.border = "solid 2px red"),
+      (lista += "<li> Se debe escribir un email valido (ana.isabel@gmail.com)</li>"),
+      (alertValidaciones.style.display = "block"),
+      (alertValidacionesTexto.style.color = "black"),
+      (isValid = false))
+    : (email.style.border = "");
+  console.log(email.value);
+  console.log(validarEmail());
+  //validacion de campo Boleta
+  !validarBoleta()
+    ? ((boleta.style.border = "solid 2px red"),
+      (lista += "<li>Ingresa un numero de boleta que contenga 10 caracteres</li>"),
+      (alertValidaciones.style.display = "block"),
+      (alertValidacionesTexto.style.color = "black"),
+      (isValid = false))
+    : (boleta.style.border = "");
+  checkboxes === null
+    ? ((ownerLabel.style.borderBottom = "1px solid rgba(255, 0, 0, 0.9)"),
+      (lista += "<li>Marca una casilla</li>"),
+      (alertValidaciones.style.display = "block"),
+      (alertValidacionesTexto.style.color = "black"),
+      (isValid = false))
+    : (ownerLabel.style.borderBottom = "");
+  checkboxes === null
+    ? (usuarioLabel.style.borderBottom = "1px solid rgba(255, 0, 0, 0.9)")
+    : (usuarioLabel.style.borderBottom = "");
+
+  lista += "</ul>";
+  //agrega el resultado de los if al campo validaciones
+  alertValidacionesTexto.insertAdjacentHTML("beforeend", lista);
+  //quita las validaciones despues de 3 seg
+  idTimeout = setTimeout(() => {
     alertValidaciones.style.display = "none";
-    //   nombre.value = nombre.value.trim(); HACE LO MISMO QUE BLUR
-    let lista = "Los siguientes campos deben ser llenados correctamente:<ul>";
-    isValid = true;
-    //SI LA FUNCION DA FALSE SE QUITA EL BORDE SI DA TRUE SE PONE EL ALERT Y EL BORDE ROJO
-    //validacion de campo nombre
-    !validarNombre()
-      ? ((nombre.style.border = "solid 2px red"),
-        (lista += "<li>Se debe escribir un nombre de 2 o mas letras</li>"),
-        (alertValidaciones.style.display = "block"),
-        (alertValidacionesTexto.style.color = "black"),
-        (isValid = false))
-      : (nombre.style.border = "");
-    //validacion de campo nombre
-    !validarApellido()
-      ? ((apellido.style.border = "solid 2px red"),
-        (lista += "<li>Se debe escribir un apellido de 2 o mas letras</li>"),
-        (alertValidaciones.style.display = "block"),
-        (alertValidacionesTexto.style.color = "black"),
-        (isValid = false))
-      : (apellido.style.border = "");
-
-    //validacion campo Password
-    !validarPassword()
-      ? ((password.style.border = "solid 2px red"),
-        (lista += "<li>Comprueba tu password</li>"),
-        (alertValidaciones.style.display = "block"),
-        (alertValidacionesTexto.style.color = "black"),
-        (isValid = false))
-      : (password.style.border = "");
-    //confirmar pass
-    !validarpasswordConfirm()
-      ? ((passwordConfirm.style.border = "solid 2px red"),
-        (lista += "<li>La Contraseña debe ser igual</li>"),
-        (alertValidaciones.style.display = "block"),
-        (alertValidacionesTexto.style.color = "black"),
-        (isValid = false))
-      : (passwordConfirm.style.border = "");
-
-    //validacion imagen
-    imagenBorde.files.length === 0
-      ? ((imagenBorde.style.border = "solid thin red"),
-        (lista += "<li>Agrega una imagen</li>"),
-        (alertValidaciones.style.display = "block"),
-        (isValid = false))
-      : (imagenBorde.style.border = "");
-
-    //validacion de campo precio
-    !validarTelefono()
-      ? ((txtTelefono.style.border = "solid 2px red"),
-        (lista += "<li> Se debe escribir una precio valido</li>"),
-        (alertValidaciones.style.display = "block"),
-        (alertValidacionesTexto.style.color = "black"),
-        (isValid = false))
-      : (txtTelefono.style.border = "");
-
-    //validacion de campo Email
-    !validarEmail()
-      ? ((email.style.border = "solid 2px red"),
-        (lista += "<li> Se debe escribir un email valido (ana.isabel@gmail.com)</li>"),
-        (alertValidaciones.style.display = "block"),
-        (alertValidacionesTexto.style.color = "black"),
-        (isValid = false))
-      : (email.style.border = "");
-
-    //validacion de campo Boleta
-    !validarBoleta()
-      ? ((boleta.style.border = "solid 2px red"),
-        (lista += "<li>Ingresa un numero de boleta que contenga 10 caracteres</li>"),
-        (alertValidaciones.style.display = "block"),
-        (alertValidacionesTexto.style.color = "black"),
-        (isValid = false))
-      : (boleta.style.border = "");
-
-    lista += "</ul>";
-    //agrega el resultado de los if al campo validaciones
-    alertValidacionesTexto.insertAdjacentHTML("beforeend", lista);
-    //quita las validaciones despues de 3 seg
-    idTimeout = setTimeout(() => {
-      alertValidaciones.style.display = "none";
-    }, 3000);
-    //   Codigo que se ejecuta al cumplir validaciones
-    if (isValid) {
-      let personas = `{
+  }, 3000);
+  //   Codigo que se ejecuta al cumplir validaciones
+  if (isValid) {
+    let personas = `{
+    "rol"          :        "${checkboxes.value}", 
     "nombre"          :     "${nombre.value}", 
     "apellido"        :     "${apellido.value}", 
     "password"        :     "${password.value}",
@@ -130,16 +153,20 @@ document.addEventListener("DOMContentLoaded", function () {
     "telefono"        :     "${txtTelefono.value}",
     "imagen"          :     "${imagen}"
   }`;
-      registros.push(JSON.parse(personas));
-      localStorage.setItem("registros", JSON.stringify(registros));
-      limpiarCampos();
-    }
-    //   ---------------------------------------------
-  });
-}); //Final DOM
+
+    registros.push(JSON.parse(personas));
+    localStorage.setItem("registros", JSON.stringify(registros));
+    limpiarCampos();
+    window.location.href = "../login.html";
+  }
+  //   ---------------------------------------------
+});
+//Final DOM
 
 // Función para limpiar campos
 function limpiarCampos() {
+  document.getElementById("owner").checked = false;
+  document.getElementById("usuarioComun").checked = false;
   document.getElementById("name").value = "";
   document.getElementById("Nombre").value = "";
   document.getElementById("telefono").value = "";
@@ -268,8 +295,7 @@ function validarBoleta() {
 //Validar mail
 function validarEmail() {
   //  valida el email electrónico
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
+  const emailRegex = /^[\w.]+@\w+\.\w{2,3}$/;
   // Validar el email electrónico y limpia el input si es correcto
   if (emailRegex.test(email.value)) {
     return true;
