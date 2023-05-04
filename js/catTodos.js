@@ -25,6 +25,7 @@ window.addEventListener("load", function () {
             <p>
             ${cargado.descripcion}
             </p>
+            <button onclick="eliminarPoper(event)" class="btn btn-danger btn-sm" id="btnPoper">x</button>
             </section>
             </div>
           </div>
@@ -54,6 +55,7 @@ window.addEventListener("load", function () {
             <p>
             ${cargado.descripcion}
             </p>
+            <button onclick="eliminarPoper(event)" class="btn btn-danger btn-sm" id="btnPoper">x</button>
             </section>
             </div>
           </div>

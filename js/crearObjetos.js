@@ -154,6 +154,7 @@ btnAgregar.addEventListener("click", function (event) {
         <p>
         ${descripcion.value}
         </p>
+        <button onclick="eliminarPoper(event)" class="btn btn-danger btn-sm" id="btnPoper">x</button>
         </section>
         <button onclick="eliminarCard(event)" class="btn btn-danger btn-sm" id="btnEliminar">Eliminar</button>
       </div>
@@ -237,6 +238,7 @@ window.addEventListener("load", function () {
           <p>
           ${cargado.descripcion}
           </p>
+          <button onclick="eliminarPoper(event)" class="btn btn-danger btn-sm" id="btnPoper">x</button>
           </section>
           <button onclick="eliminarCard(event)" class="btn btn-danger btn-sm" id="btnEliminar">Eliminar</button>
         </div>
@@ -265,6 +267,7 @@ window.addEventListener("load", function () {
         <p>
         ${cargado.descripcion}
         </p>
+        <button onclick="eliminarPoper(event)" class="btn btn-danger btn-sm" id="btnPoper">x</button>
         </section>
         <button onclick="eliminarCard(event)" class="btn btn-danger btn-sm" id="btnEliminar">Eliminar</button>
       </div>

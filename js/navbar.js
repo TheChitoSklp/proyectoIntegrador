@@ -179,3 +179,9 @@ function buscar() {
     contenedorTarjetas.insertAdjacentHTML("beforeend", card);
   });
 }
+
+function eliminarPoper(event) {
+  event.preventDefault();
+  let poper = event.target.closest(".popover");
+  poper.style.display = "none";
+}
