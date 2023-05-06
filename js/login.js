@@ -23,12 +23,17 @@ window.addEventListener("load", function () {
     usuarioLogeadoTexto.innerText = `Usuario: ${loginCargado.Usuario}`;
     bienvenida.classList.remove("d-none");
   }
-  const usuarioCoincidente = registros.find((usuario) => {
-    return usuario.correo === usuarioLoged.Usuario;
-  });
+  // corrige el error de que no encuentra el valor rol
+  const estadoDelLogin = window.getComputedStyle(loginInfo); //trae todos los elementos css del cardLogin
+  if (estadoDelLogin.getPropertyValue("display") === "none") {
+    //de todos los elementos busca el display y lo compara con none
+    const usuarioCoincidente = registros.find((usuario) => {
+      return usuario.correo === usuarioLoged.Usuario;
+    });
 
-  if (usuarioCoincidente.rol === "vendedor") {
-    vistaVendedor.classList.remove("d-none");
+    if (usuarioCoincidente.rol === "vendedor") {
+      vistaVendedor.classList.remove("d-none");
+    }
   }
 });
 //Condicion para agregar productos
@@ -54,7 +59,11 @@ function autenticarUsuario(usuario, password) {
         .querySelector("#dbtn .formulario__input-error")
         .classList.remove("formulario__input-error-activo");
       formulario.reset();
-      window.location.href = "../login.html";
+      if (usuarioValido.rol === "vendedor") {
+        window.location.href = "../login.html";
+      } else {
+        window.location.href = "../index.html";
+      }
       //miFormularioLogin.reset();
     } else {
       document

@@ -38,21 +38,43 @@ document.querySelector("#imagen").addEventListener("change", function () {
   reader.readAsDataURL(this.files[0]);
 }); //imagen codigo
 
-//Delete button
+// Delete button
+
 function eliminarCard(event) {
-  // Obtener una referencia al elemento padre de la tarjeta que contiene el botón eliminar
   let tarjeta = event.target.closest(".card");
+
   // Obtener el ID de la tarjeta que se va a eliminar
   let idTarjeta = tarjeta.getAttribute("id");
-  // Eliminar la tarjeta del DOM
 
-  // Eliminar la tarjeta de los datos almacenados en el local storage
-  let indice = datos.findIndex((elemento) => elemento.id === idTarjeta);
-  if (indice !== -1) {
-    datos.splice(indice, 1);
-    localStorage.setItem("datos", JSON.stringify(datos));
-  }
-  tarjeta.remove();
+  // Mostrar el cuadro de confirmación de Bootstrap
+  let confirmationModal = new bootstrap.Modal(document.getElementById("confirmation-modal"));
+  let modalTitle = document.getElementById("modal-title");
+  let modalBody = document.getElementById("modal-body");
+  modalTitle.textContent = "¿Estás seguro de que deseas eliminar el producto?";
+  modalBody.textContent = "Esta acción no se puede deshacer.";
+  confirmationModal.show();
+
+  // Manejar la respuesta del usuario
+  let confirmYes = document.getElementById("confirm-yes");
+  let confirmNo = document.getElementById("confirm-no");
+  confirmYes.addEventListener("click", function () {
+    // Eliminar la tarjeta del DOM
+    tarjeta.remove();
+
+    // Eliminar la tarjeta de los datos almacenados en el local storage
+    let indice = datos.findIndex((elemento) => elemento.id === idTarjeta);
+    if (indice !== -1) {
+      datos.splice(indice, 1);
+      localStorage.setItem("datos", JSON.stringify(datos));
+    }
+
+    // Ocultar el cuadro de confirmación de Bootstrap
+    confirmationModal.hide();
+  });
+  confirmNo.addEventListener("click", function () {
+    // Ocultar el cuadro de confirmación de Bootstrap
+    confirmationModal.hide();
+  });
 }
 
 //Previsualiza la imagen del input
@@ -154,9 +176,10 @@ btnAgregar.addEventListener("click", function (event) {
         <p>
         ${descripcion.value}
         </p>
-        <button onclick="eliminarPoper(event)" class="btn btn-danger btn-sm" id="btnPoper">x</button>
+        <button onclick="eliminarPoper(event)" class="" id="btnPoper"><i class="bi bi-x-circle fs-5"></i></button>
         </section>
-        <button onclick="eliminarCard(event)" class="btn btn-danger btn-sm" id="btnEliminar">Eliminar</button>
+        <a onclick="eliminarCard(event)" class="btn btn-danger btn-sm "  id="btnEliminar">Eliminar</a>
+        
       </div>
     </div>
 
@@ -238,9 +261,9 @@ window.addEventListener("load", function () {
           <p>
           ${cargado.descripcion}
           </p>
-          <button onclick="eliminarPoper(event)" class="btn btn-danger btn-sm" id="btnPoper">x</button>
+          <button onclick="eliminarPoper(event)" class="" id="btnPoper"><i class="bi bi-x-circle fs-5"></i></button>
           </section>
-          <button onclick="eliminarCard(event)" class="btn btn-danger btn-sm" id="btnEliminar">Eliminar</button>
+          <a onclick="eliminarCard(event)" class="btn btn-danger btn-sm "  id="btnEliminar">Eliminar</a>
         </div>
       </div>
     `;
@@ -267,15 +290,16 @@ window.addEventListener("load", function () {
         <p>
         ${cargado.descripcion}
         </p>
-        <button onclick="eliminarPoper(event)" class="btn btn-danger btn-sm" id="btnPoper">x</button>
+        
+        <button onclick="eliminarPoper(event)" class="" id="btnPoper"><i class="bi bi-x-circle fs-5"></i></button>
         </section>
-        <button onclick="eliminarCard(event)" class="btn btn-danger btn-sm" id="btnEliminar">Eliminar</button>
-      </div>
-    </div>
+        <a onclick="eliminarCard(event)" class="btn btn-danger btn-sm "  id="btnEliminar">Eliminar</a>
+       
+
   `;
     contenedorTarjetas.insertAdjacentHTML("beforeend", cardGuardadas);
   });
-
+  // muestra y quita  los popers
   let buttons = document.querySelectorAll(".popover-btn");
   let popovers = document.querySelectorAll(".popover");
 
