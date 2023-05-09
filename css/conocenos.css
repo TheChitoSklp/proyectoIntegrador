@@ -1,5 +1,15 @@
 main {
-    margin-top: 5rem;
-    margin-bottom: 7rem;
-  }
-
+  margin-top: 5rem;
+  margin-bottom: 7rem;
+}
+body {
+  font-family: "Raleway", sans-serif;
+}
+p {
+  font-size: medium;
+  text-align: justify;
+  font-weight: normal;
+}
+.card-header {
+  font-size: 1.3rem;
+}
