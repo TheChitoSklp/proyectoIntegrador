@@ -5,8 +5,8 @@
 .baner_img{
     width: 100%;
 }
-
-h3{
+/*Selector que entrba en conflicto con nabvar*/
+main h3{
     text-align: center;
     font-size: 50px;
     margin-bottom: 40px;
