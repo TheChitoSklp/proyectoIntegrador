@@ -60,7 +60,7 @@ function validarMensaje() {
   } else if (txtMensaje.value.length > 160) {
     return false;
     /* mostrarMensaje('El mensaje es demasiado largo. No debe tener más de 160 caracteres.', 'error'); */
-  } else if (!/^[a-zA-Z0-9\s]*$/.test(txtMensaje.value)) {
+  } else if (!/^[a-zA-Z0-9\s.,¡!¿?ñÑáéíóúÁÉÍÓÚüÜ]*$/.test(txtMensaje.value)) {
     return false;
     /*  mostrarMensaje('El mensaje solo puede contener letras y números.', 'error'); */
   } else {
