@@ -27,37 +27,7 @@ window.addEventListener("load", function () {
             <p>
             ${cargado.descripcion}
             </p>
-            </section>
-            </div>
-          </div>
-        </div>
-      `;
-
-        contenedorTarjetas.insertAdjacentHTML("beforeend", card);
-      });
-    articulos
-      .filter((item) => item.categoria === "calzado")
-      .forEach((cargado) => {
-        let card = `
-        <div id="${cargado.id}" class="card m-3 col-sm-4 col-md-4 col-lg-3 col-xl-3 ">
-        <img src="${cargado.imagen}" alt="img" class="img-fluid fixed-image cardImage">
-          <div class="card-body">
-            <h5 class="card-title">${cargado.nombre}</h5>
-            <p class="card-price">Precio: ${cargado.precio}</p>
-            <div>
-            <div>
-            <p class="card-text">${cargado.descripcion}</p>
-            <button class="popover-btn">Leer más </button>
-            <section class="popover">
-            <h3>
-            ${cargado.nombre}
-            </h3>
-            <span>
-            Precio: <strong>${cargado.precio}</strong>
-            </span>
-            <p>
-            ${cargado.descripcion}
-            </p>
+            <button onclick="eliminarPoper(event)" class="" id="btnPoper"><i class="bi bi-x-circle fs-5"></i></button>
             </section>
             </div>
           </div>
@@ -86,3 +56,35 @@ window.addEventListener("load", function () {
     });
   });
 });
+articulos
+  .filter((item) => item.categoria === "calzado")
+  .forEach((cargado) => {
+    let card = `
+  <div id="${cargado.id}" class="card m-3 col-sm-4 col-md-4 col-lg-3 col-xl-3 ">
+  <img src="${cargado.imagen}" alt="img" class="img-fluid fixed-image cardImage">
+    <div class="card-body">
+      <h5 class="card-title">${cargado.nombre}</h5>
+      <p class="card-price">Precio: ${cargado.precio}</p>
+      <div>
+      <div>
+      <p class="card-text">${cargado.descripcion}</p>
+      <button class="popover-btn">Leer más </button>
+      <section class="popover">
+      <h3>
+      ${cargado.nombre}
+      </h3>
+      <span>
+      Precio: <strong>${cargado.precio}</strong>
+      </span>
+      <p>
+      ${cargado.descripcion}
+      </p>
+      <button onclick="eliminarPoper(event)" class="" id="btnPoper"><i class="bi bi-x-circle fs-5"></i></button>
+      </section>
+      </div>
+    </div>
+  </div>
+`;
+
+    contenedorTarjetas.insertAdjacentHTML("beforeend", card);
+  });

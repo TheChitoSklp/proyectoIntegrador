@@ -18,6 +18,7 @@
   background-color: rgba(7, 7, 7, 0.8);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   z-index: 2;
+  text-align: center;
 }
 
 .popover h3 {
@@ -38,4 +39,24 @@
   line-height: 1.5;
   text-align: justify;
   padding: 0 1rem;
+}
+#btnPoper {
+  width: 30px;
+  height: auto;
+  background-color: transparent;
+  color: whitesmoke;
+  padding: 0px;
+  border: none;
+  border-radius: 15px;
+  font-weight: 600;
+  justify-content: center;
+  align-items: center;
+}
+
+#btnPoper:hover {
+  background-color: #ff1a1a;
+  color: white;
+  transform: scale(1.1);
+  font-weight: 700;
+  border: none;
 }

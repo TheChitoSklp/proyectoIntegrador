@@ -5,7 +5,7 @@ const email = document.getElementById("txtCorreo");
 let txtMensaje = document.getElementById("mensaje");
 let txtTelefono = document.getElementById("telefono");
 const form = document.getElementById("formSend");
-console.log(form);
+
 //Se definen los divs ocultos de las alertas
 let alertValidaciones = document.getElementById("alertValidaciones");
 let alertValidacionesTexto = document.getElementById("alertValidacionesTexto");
@@ -167,3 +167,12 @@ txtemail.addEventListener("blur", function (event) {
   event.preventDefault();
   txtemail.value = txtemail.value.trim();
 }); /* txtMail.blur */
+
+// le quita el display al label de mensaje cuando tiene algo escrito y si no tiene nada lo regresa
+mensaje.addEventListener("input", () => {
+  if (mensaje.value.length == 0) {
+    document.getElementById("labelMensaje").style.display = "block";
+  } else {
+    labelMensaje.style.display = "none";
+  }
+});
