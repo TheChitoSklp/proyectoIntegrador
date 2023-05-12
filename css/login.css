@@ -8,9 +8,10 @@ main {
   max-width: 700px;
   justify-content: center;
   border: black !important;
+  padding-top: 60px;
 }
 #campos {
-  margin-top: 2rem;
+  margin-top: -1rem;
 }
 .form-floating {
   margin-bottom: 0.5rem;
@@ -46,10 +47,17 @@ main {
 h1 {
   color: white;
 }
+.container {
+  padding: 10px;
+}
 p {
   color: white;
 }
-
+.descripcionlogin{
+  color: rgb(255, 255, 255);
+  position: relative;
+  padding-bottom: 0px;
+}
 div {
   justify-content: center;
 }
@@ -78,14 +86,14 @@ body #no-tienes-cuenta {
 }
 
 .formulario_incorrecto {
-  color: #bb2929;
+  color: #ffffff;
 }
 
 .formulario__input-error {
   font-size: 12px;
   margin-bottom: 0;
   display: none;
-  color: rgb(255, 0, 0);
+  color: rgb(255, 255, 255);
 }
 
 .formulario__input-error-activo {
