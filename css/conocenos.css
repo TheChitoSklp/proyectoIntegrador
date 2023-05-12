@@ -31,3 +31,39 @@ p {
   background-color: var(--third-alpha-color);
   font-size: 1.3rem;
 }
+
+#cuerpo{
+  width: 90% !important;
+}
+
+.fondo{
+  background-color: rgb(228, 206, 219);
+}
+
+/* .container-fluid{
+  background-color: lightblue;
+} */
+
+.LogoPagina{
+  width: 100%;
+  max-width: 40rem;
+}
+
+.imagen1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconos{
+  max-width: 70%;
+  margin-top: 5rem;
+}
+
+#ipn{
+  max-width: 48%;
+}
+
+#compromiso{
+  max-width: 45.5rem;
+}

@@ -1,0 +1,86 @@
+:root {
+    --first-color: rgb(107, 26, 29);
+    --first-alpha-color: rgba(107, 26, 29, 0.75);
+    --second-color: rgb(169, 64, 71);
+    --second-alpha-color: rgba(169, 64, 71, 0.75);
+    --third-color: rgb(248, 162, 176);
+    --third-alpha-color: rgba(248, 162, 176, 0.75);
+    --fourth-color: rgb(228, 206, 219);
+    --fourth-alpha-color: rgba(228, 206, 219, 0.75);
+    --fifth-color: rgb(224, 93, 96);
+    --fifth-alpha-color: rgba(224, 93, 96, 0.75);
+    --white-color: rgb(220, 220, 220);
+  }
+  main {
+    margin-top: 5rem;
+    margin-bottom: 7rem;
+  }
+  body {
+    font-family: "Raleway", sans-serif;
+  }
+  p {
+    font-size: medium;
+    text-align: justify;
+    font-weight: normal;
+  }
+  .card {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .cardHeader {
+    background-color: var(--third-alpha-color);
+    font-size: 1.3rem;
+  }
+  
+  #cuerpo{
+    width: 90% !important;
+  }
+  
+  .fondo{
+    background-color: rgb(228, 206, 219);
+  }
+  
+  /* .container-fluid{
+    background-color: lightblue;
+  } */
+  
+  .LogoPagina{
+    width: 100%;
+    max-width: 40rem;
+  }
+  
+  .imagen1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .iconos{
+    max-width: 90%;
+    margin-top: 5rem;
+    cursor: pointer;
+    transition: 1s;
+  }
+
+  .iconos:hover{
+    transform: scale(1.2);
+  }
+
+  #imagenCentro{
+    width: 21.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    cursor: pointer;
+    transition: 1s;
+  }
+
+  #imagenCentro:hover{
+    transform: scale(1.2);
+  }
+
+
+
+
