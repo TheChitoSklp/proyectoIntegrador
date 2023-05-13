@@ -78,46 +78,43 @@ function autenticarUsuario(usuario, password) {
 }
 
 const validar = (e) => {
-  switch (e.target.name) {
-    case "email":
-      if (validaciones.correo.test(e.target.value)) {
-        document.getElementById("demail").classList.remove("formulario_incorrecto");
-        document.getElementById("demail").classList.add("formulario_correcto");
-        document
-          .querySelector("#flogin .formulario__input-error")
-          .classList.remove("formulario__input-error-activo");
-        campos.correo = true;
-      } else {
-        document.getElementById("demail").classList.add("formulario_incorrecto");
-        document
-          .querySelector("#flogin .formulario__input-error")
-          .classList.add("formulario__input-error-activo");
-        campos.correo = false;
-      }
-      break;
+  if (e.target.name === "email") {
+    if (validaciones.correo.test(e.target.value)) {
+      document.getElementById("demail").classList.remove("formulario_incorrecto");
+      document.getElementById("demail").classList.add("formulario_correcto");
+      document
+        .querySelector("#flogin .formulario__input-error")
+        .classList.remove("formulario__input-error-activo");
+      campos.correo = true;
+    } else {
+      document.getElementById("demail").classList.add("formulario_incorrecto");
+      document
+        .querySelector("#flogin .formulario__input-error")
+        .classList.add("formulario__input-error-activo");
+      campos.correo = false;
+    }
+  }
 
-    case "password":
-      if (validaciones.password.test(e.target.value)) {
-        document.getElementById("dpassword").classList.remove("formulario_incorrecto");
-        document.getElementById("dpassword").classList.add("formulario_correcto");
-        document
-          .querySelector("#fpassword .formulario__input-error")
-          .classList.remove("formulario__input-error-activo");
-        campos.password = true;
-      } else {
-        document.getElementById("dpassword").classList.add("formulario_incorrecto");
-        document
-          .querySelector("#fpassword .formulario__input-error")
-          .classList.add("formulario__input-error-activo");
-        campos.password = false;
-      }
-      break;
+  if (e.target.name === "password") {
+    if (validaciones.password.test(e.target.value)) {
+      document.getElementById("dpassword").classList.remove("formulario_incorrecto");
+      document.getElementById("dpassword").classList.add("formulario_correcto");
+      document
+        .querySelector("#fpassword .formulario__input-error")
+        .classList.remove("formulario__input-error-activo");
+      campos.password = true;
+    } else {
+      document.getElementById("dpassword").classList.add("formulario_incorrecto");
+      document
+        .querySelector("#fpassword .formulario__input-error")
+        .classList.add("formulario__input-error-activo");
+      campos.password = false;
+    }
   }
 };
 
 inputs.forEach((input) => {
   input.addEventListener("keyup", validar);
-  input.addEventListener("blur", validar);
 });
 
 formulario.addEventListener("submit", (e) => {
