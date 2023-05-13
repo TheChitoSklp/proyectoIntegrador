@@ -36,46 +36,9 @@ document.querySelector("#imagen").addEventListener("change", function () {
     imagen = reader.result;
   });
   reader.readAsDataURL(this.files[0]);
-}); //imagen codigo
+}); //imagen codigo modal
 
 // Delete button
-
-function eliminarCard(event) {
-  let tarjeta = event.target.closest(".card");
-
-  // Obtener el ID de la tarjeta que se va a eliminar
-  let idTarjeta = tarjeta.getAttribute("id");
-
-  // Mostrar el cuadro de confirmación de Bootstrap
-  let confirmationModal = new bootstrap.Modal(document.getElementById("confirmation-modal"));
-  let modalTitle = document.getElementById("modal-title");
-  let modalBody = document.getElementById("modal-body");
-  modalTitle.textContent = "¿Estás seguro de que deseas eliminar el producto?";
-  modalBody.textContent = "Esta acción no se puede deshacer.";
-  confirmationModal.show();
-
-  // Manejar la respuesta del usuario
-  let confirmYes = document.getElementById("confirm-yes");
-  let confirmNo = document.getElementById("confirm-no");
-  confirmYes.addEventListener("click", function () {
-    // Eliminar la tarjeta del DOM
-    tarjeta.remove();
-
-    // Eliminar la tarjeta de los datos almacenados en el local storage
-    let indice = datos.findIndex((elemento) => elemento.id === idTarjeta);
-    if (indice !== -1) {
-      datos.splice(indice, 1);
-      localStorage.setItem("datos", JSON.stringify(datos));
-    }
-
-    // Ocultar el cuadro de confirmación de Bootstrap
-    confirmationModal.hide();
-  });
-  confirmNo.addEventListener("click", function () {
-    // Ocultar el cuadro de confirmación de Bootstrap
-    confirmationModal.hide();
-  });
-}
 
 //Previsualiza la imagen del input
 function previewImagen(event) {
@@ -87,6 +50,14 @@ function previewImagen(event) {
   reader.readAsDataURL(event.target.files[0]);
 } // prevImagen
 
+function previewImagenModal(event) {
+  let reader = new FileReader();
+  reader.onload = function () {
+    let vista_previa = document.getElementById("vista-previaModal");
+    vista_previa.src = reader.result;
+  };
+  reader.readAsDataURL(event.target.files[0]);
+}
 function validarPrecio() {
   if (precios.value.length == 0) {
     return false;
@@ -178,8 +149,8 @@ btnAgregar.addEventListener("click", function (event) {
         </p>
         <button onclick="eliminarPoper(event)" class="" id="btnPoper"><i class="bi bi-x-circle fs-5"></i></button>
         </section>
-        <a onclick="eliminarCard(event)" class="btn btn-danger btn-sm "  id="btnEliminar">Eliminar</a>
-        
+        <button type="button" onclick="eliminarCard(event)" class="btn btn-danger btn-sm "  id="btnEliminar">Eliminar</button>
+        <button id="btnEditar"onclick="editarProducto(event)" type="button" class="btn btn-outline-primary btn-sm"><i class="bi bi-pencil-square"></i></button>
       </div>
     </div>
 
@@ -263,7 +234,8 @@ window.addEventListener("load", function () {
           </p>
           <button onclick="eliminarPoper(event)" class="" id="btnPoper"><i class="bi bi-x-circle fs-5"></i></button>
           </section>
-          <a onclick="eliminarCard(event)" class="btn btn-danger btn-sm "  id="btnEliminar">Eliminar</a>
+          <button type="button" onclick="eliminarCard(event)" class="btn btn-danger btn-sm "  id="btnEliminar">Eliminar</button>
+          <button id="btnEditar"onclick="editarProducto(event)" type="button" class="btn btn-outline-primary btn-sm"><i class="bi bi-pencil-square"></i></button>
         </div>
       </div>
     `;
@@ -293,8 +265,8 @@ window.addEventListener("load", function () {
         
         <button onclick="eliminarPoper(event)" class="" id="btnPoper"><i class="bi bi-x-circle fs-5"></i></button>
         </section>
-        <a onclick="eliminarCard(event)" class="btn btn-danger btn-sm "  id="btnEliminar">Eliminar</a>
-       
+        <button type="button" onclick="eliminarCard(event)" class="btn btn-danger btn-sm "  id="btnEliminar">Eliminar</button>
+        <button id="btnEditar" onclick="editarProducto(event)" type="button" class="btn btn-outline-primary btn-sm"><i class="bi bi-pencil-square"></i></button>
 
   `;
     contenedorTarjetas.insertAdjacentHTML("beforeend", cardGuardadas);
@@ -320,3 +292,103 @@ window.addEventListener("load", function () {
     });
   });
 });
+
+function eliminarCard(event) {
+  let tarjeta = event.target.closest(".card");
+
+  // Obtener el ID de la tarjeta que se va a eliminar
+  let idTarjeta = tarjeta.getAttribute("id");
+
+  // Mostrar el cuadro de confirmación de Bootstrap
+  let confirmationModal = new bootstrap.Modal(document.getElementById("confirmation-modal"));
+  let modalTitle = document.getElementById("modal-title");
+  let modalBody = document.getElementById("modal-body");
+  modalTitle.textContent = "¿Estás seguro de que deseas eliminar el producto?";
+  modalBody.textContent = "Esta acción no se puede deshacer.";
+  confirmationModal.show();
+
+  // Manejar la respuesta del usuario
+  let confirmYes = document.getElementById("confirm-yes");
+  let confirmNo = document.getElementById("confirm-no");
+  confirmYes.addEventListener("click", function () {
+    // Eliminar la tarjeta del DOM
+    tarjeta.remove();
+
+    // Eliminar la tarjeta de los datos almacenados en el local storage
+    let indice = datos.findIndex((elemento) => elemento.id === idTarjeta);
+    if (indice !== -1) {
+      datos.splice(indice, 1);
+      localStorage.setItem("datos", JSON.stringify(datos));
+    }
+
+    // Ocultar el cuadro de confirmación de Bootstrap
+    confirmationModal.hide();
+  });
+  confirmNo.addEventListener("click", function () {
+    // Ocultar el cuadro de confirmación de Bootstrap
+    confirmationModal.hide();
+  });
+}
+
+function editarProducto(event) {
+  //obtener el elemento padre mas cercano
+  let tarjeta = event.target.closest(".card");
+  // Obtener el ID de la tarjeta que se va a eliminar
+  let idTarjeta = tarjeta.getAttribute("id");
+  //muestra el modal
+  let confirmationModal = new bootstrap.Modal(document.getElementById("exampleModal"));
+  confirmationModal.show();
+  let btnAgregarModal = document.getElementById("btnAgregarModal");
+  let nombreModal = document.getElementById("NameModal");
+  let preciosModal = document.getElementById("preciosModal");
+  let descripcionModal = document.getElementById("descripcionModal");
+
+  btnAgregarModal.addEventListener("click", function () {
+    let nombreTarjeta = tarjeta.querySelector("h5");
+    let precioTarjeta = tarjeta.querySelector(".card-price");
+    let descripcionmTarjeta = tarjeta.querySelector(".card-text");
+
+    let validacionModal = true;
+
+    nombreModal.value.length < 2
+      ? ((nombreModal.style.border = "solid thin red"),
+        (alertValidaciones.style.display = "block"),
+        (validacionModal = false))
+      : (nombreModal.style.border = "");
+
+    descripcionModal.value.length < 10
+      ? ((descripcionModal.style.border = "solid thin red"),
+        (alertValidaciones.style.display = "block"),
+        (validacionModal = false))
+      : (descripcionModal.style.border = "");
+
+    preciosModal.value == "" ||
+    isNaN(preciosModal.value) ||
+    parseFloat(preciosModal.value) <= 0
+      ? ((preciosModal.style.border = "solid thin red"),
+        (alertValidaciones.style.display = "block"),
+        (validacionModal = false))
+      : (preciosModal.style.border = "");
+
+    if (validacionModal) {
+      btnAgregarModal.setAttribute("data-bs-dismiss", "modal");
+      btnAgregarModal.classList.remove("btn-primary");
+      btnAgregarModal.classList.add("btn-danger");
+      btnAgregarModal.innerText = "Cerrar";
+    }
+
+    if (validacionModal) {
+      //cambiar datos de la card
+      (nombreTarjeta.innerText = nombreModal.value),
+        (precioTarjeta.innerText = preciosModal.value),
+        (descripcionmTarjeta.innerText = descripcionModal.value);
+      // guardar los cambios en el localStorage
+      let productos = JSON.parse(localStorage.getItem("datos"));
+      let producto = productos.find((p) => p.id === idTarjeta);
+      producto.nombre = nombreModal.value;
+      producto.precio = preciosModal.value;
+      producto.descripcion = descripcionModal.value;
+      localStorage.setItem("datos", JSON.stringify(productos));
+    }
+  });
+}

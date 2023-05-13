@@ -60,3 +60,11 @@
   font-weight: 700;
   border: none;
 }
+.modal-lg {
+  max-width: 65%;
+}
+@media (max-width: 1000px) {
+  .modal-lg {
+    max-width: 100%;
+  }
+}

@@ -168,6 +168,80 @@
       </div>
     </div>
 
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Editar</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form class="needs-validation">
+              <div class="row">
+                <div class="col-sm-6 col-lg-4 mb-3">
+                  <label for="Name">Nombre</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="NameModal"
+                    autofocus
+                    placeholder="Maquillaje"
+                    value=""
+                    required
+                  />
+                  <div class="invalid-feedback">Nombre inválido</div>
+                </div>
+                <div class="col-sm-6 col-lg-4 mb-3">
+                  <label for="precios">Precio</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="preciosModal"
+                    placeholder="280.00"
+                    value=""
+                    required
+                  />
+                  <div class="invalid-feedback">Cantidad inválida</div>
+                </div>
+                <div class="col-sm-6 col-lg-4 mb-3">
+                  <label for="descripcion">Descripción</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="descripcionModal"
+                    autofocus
+                    placeholder="El producto tiene estas características..."
+                    value=""
+                    required
+                  />
+                  <div class="invalid-feedback">Nombre inválido</div>
+                </div>
+              </div>
+              <button id="btnAgregarModal" class="btn btn-primary btn-lg btn-sm" type="button">
+                Guardar
+              </button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="./js/crearObjetos.js"></script>
     <script src="./js/navbar.js"></script>
     <script src="./js/footer.js"></script>
