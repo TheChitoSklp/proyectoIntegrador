@@ -17,6 +17,7 @@ window.addEventListener("load", function () {
             <div>
             <p class="card-text">${cargado.descripcion}</p>
             <button class="popover-btn">Leer más </button>
+            <button  onclick="agregarProducto(event)" class="btn carritoBoton"><i class="bi bi-cart-plus fs-4"></i></button>
             <section class="popover">
             <h3>
             ${cargado.nombre}
@@ -69,6 +70,7 @@ articulos
       <div>
       <p class="card-text">${cargado.descripcion}</p>
       <button class="popover-btn">Leer más </button>
+      <button  onclick="agregarProducto(event)" class="btn carritoBoton"><i class="bi bi-cart-plus fs-4"></i></button>
       <section class="popover">
       <h3>
       ${cargado.nombre}
