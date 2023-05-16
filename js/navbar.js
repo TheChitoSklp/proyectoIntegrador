@@ -1,4 +1,6 @@
 let body = document.getElementsByTagName("body");
+let carritoCantidadProductos = JSON.parse(localStorage.getItem("carrito")) || [];
+
 const Navbar = `  
  <!-- Navbar de arriba -->
 <nav class="navbar fixedTop">
@@ -31,9 +33,10 @@ const Navbar = `
       </li>
 
       <li class="nav-item col iconosCarritoLogin">
-        <a class="nav-link" href="carrito.html">
-          <i class="bi bi-cart3 fs-2"> </i
-        ></a>
+        <a  class="nav-link" href="carrito.html">
+          <i  class="bi bi-cart3 fs-2"> </i
+        >
+        <span id="carritoNumero"></span></a>
         <a class="nav-link" href="login.html"
           ><i class="bi bi-person-fill fs-2"></i
         ></a>
@@ -59,9 +62,9 @@ const Navbar = `
     <a class="navbar-brand m-0" href="index.html"
       ><img src="./src/icons/HOME 2.png" alt=""
     /></a>
-    <a class="navbar-brand m-0" href="carrito.html"
-      ><img src="./src/icons/carritoB.png" alt=""
-    /></a>
+    <a id="carritoNumeroCelular" class="navbar-brand m-0" href="carrito.html"
+      ><img  src="./src/icons/carritoB.png" alt=""
+    /> <span id="carritoNumeroMobile"></span></a>
     <a class="navbar-brand m-0" href="login.html"
       ><img src="./src/icons/login.png" alt=""
     /></a>
@@ -185,3 +188,6 @@ function eliminarPoper(event) {
   let poper = event.target.closest(".popover");
   poper.style.display = "none";
 }
+
+carritoNumero.innerText = carritoCantidadProductos.length;
+carritoNumeroMobile.innerText = carritoCantidadProductos.length;

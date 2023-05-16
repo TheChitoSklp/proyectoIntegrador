@@ -1,0 +1,23 @@
+.textoTotal {
+  margin-top: 1rem;
+  font-size: small;
+  color: gray;
+}
+#contenidoTabla {
+  display: none;
+}
+@media print {
+  .navbar * {
+    display: none;
+  }
+  footer * {
+    display: none;
+  }
+  main * {
+    display: none;
+  }
+
+  #contenidoTabla {
+    display: block;
+  }
+}
