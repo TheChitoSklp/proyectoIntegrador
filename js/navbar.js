@@ -3,43 +3,43 @@ let carritoCantidadProductos = JSON.parse(localStorage.getItem("carrito")) || []
 
 const Navbar = `  
  <!-- Navbar de arriba -->
-<nav class="navbar fixedTop">
+<nav class="navbar fixedTop" style="--bs-navbar-padding-x: none;">
   <div class="container-fluid">
     <ul class="navbar-nav row">
       <li class="nav-item col">
         <a class="navbar-brand m-0" href="index.html"
-          ><img src="./src/icons/logoIpnTrans.png" class="logoIpn" alt= /></a
+          ><img src="./src/icons/logoIpnTrans.png" class="logoIpn"  /></a
         >
+    <li class="nav-item col">
+        <a class="nav-link " aria-current="page" href="index.html">Inicio</a>
+      </li>
+      <li class="nav-item col">
+        <a class="nav-link " aria-current="page" href="categorias.html" >Categorías</a >
+      </li>
+      <li class="nav-item col">
+        <a class="nav-link " href="ofertas.html">Promociones</a>
+      </li>
+      <li class="nav-item col">
+        <a class="nav-link " href="conocenos.html">Conócenos</a>
+      </li>
+      <li class="nav-item col">
+        <a class="nav-link " href="acercaDeCliente.html">Acerca de cliente</a>
+      </li>
+      <li class="nav-item col">
+        <a class="nav-link " href="acercaDeEquipo.html">Acerca de equipo</a>
+      </li>
+      <li class="nav-item col">
+        <a class="nav-link " href="contacto.html">Contáctanos</a>
+      </li>
 
-      <li class="nav-item col">
-        <a class="nav-link fs-5" aria-current="page" href="categorias.html"
-          >Categorías</a
-        >
-      </li>
-      <li class="nav-item col">
-        <a class="nav-link fs-5" href="ofertas.html">Promociones</a>
-      </li>
-      <li class="nav-item col">
-        <a class="nav-link fs-5" href="conocenos.html">Conócenos</a>
-      </li>
-      <li class="nav-item col">
-        <a class="nav-link fs-5" href="acercaDeCliente.html">Acerca de cliente</a>
-      </li>
-      <li class="nav-item col">
-        <a class="nav-link fs-5" href="acercaDeEquipo.html">Acerca de equipo</a>
-      </li>
-      <li class="nav-item col">
-        <a class="nav-link fs-5" href="contacto.html">Contáctanos</a>
-      </li>
-
-      <li class="nav-item col iconosCarritoLogin">
+      <li class="nav-item col px-2 iconosCarritoLogin">
         <a  class="nav-link" href="carrito.html">
-          <i  class="bi bi-cart3 fs-2"> </i
-        >
+          <i  class="bi bi-cart3 fs-3"> </i>
+          
         <span id="carritoNumero"></span></a>
-        <a class="nav-link" href="login.html"
-          ><i class="bi bi-person-fill fs-2"></i
-        ></a>
+        
+        <a class="nav-link ms-4" href="login.html">
+          <i class="bi bi-person-fill fs-2"></i></a>
       </li>
     </ul>
     <section class="hideForm p-3">

@@ -52,7 +52,21 @@ body {
   display: flex;
   justify-content: center;
   text-align: center;
+  text-decoration: none;
+  outline: 0;
+  border-bottom: solid 1px transparent;
+  -webkit-transition: color .2s ease-out, border-bottom-color .2s ease-out;
+     -moz-transition: color .2s ease-out, border-bottom-color .2s ease-out;
+      -ms-transition: color .2s ease-out, border-bottom-color .2s ease-out;
+       -o-transition: color .2s ease-out, border-bottom-color .2s ease-out;
+          transition: color .2s ease-out, border-bottom-color .2s ease-out;
 }
+.nav-link:hover{
+  
+  border-bottom: solid 1px white;
+  color: white;
+}
+
 .navbar-toggler {
   background-color: var(--fourth-color);
 }
@@ -63,7 +77,7 @@ body {
   display: none;
 }
 .logoIpn {
-  width: 5rem;
+  width: 4rem;
   border-radius: 50%;
 }
 .logoIpn:hover {
@@ -131,19 +145,18 @@ footer .row {
 }
 
 .yhover:hover {
-  box-shadow: 0 0 10px rgb(254, 254, 254);
+  filter:drop-shadow( 0 0 20px rgb(254, 254, 254));
+  
 }
 
-.yhover:hover {
-  border-radius: 50%;
-}
 
 .btn-primary {
-  background-color: rgb(107, 26, 29);
-  outline: rgba(107, 26, 29, 0.75);
+  background-color: var(--first-color)!important;
+  outline: var(--first-alpha-color);
+  border: none!important;
 }
 
 .btn-primary:hover {
   background-color: rgb(146, 43, 33) !important;
-  outline: none !important;
+  border: none!important;
 }

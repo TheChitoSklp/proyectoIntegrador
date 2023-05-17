@@ -20,6 +20,7 @@ main {
   color: rgb(3, 3, 3);
 }
 
+
 .form-control:focus {
   background-color: whitesmoke;
   border-color: rgba(255, 255, 255, 0.4);
