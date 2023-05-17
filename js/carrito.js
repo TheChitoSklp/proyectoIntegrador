@@ -22,6 +22,37 @@ carritoCantidadProductos.forEach((producto) => {
 });
 precioTotal.textContent = `$${carritoPrecioTotal.toFixed(2)}`;
 
+carritoCantidadProductos.forEach((objeto, index) => {
+  let fila =
+    `<tr id='${objeto.id}'><th>` +
+    (index + 1) +
+    `</th><td>` +
+    objeto.nombre +
+    `</td><td>` +
+    objeto.precio;
+
+  tablaBody.innerHTML += fila;
+});
+let celularVendedora = "Numero de contacto vendedora: 315 124 4567";
+let totalPdf = `
+<tr>
+<td>
+</td>
+<td>
+</td>
+<td id="totalTablaOculta">Total $${carritoPrecioTotal.toFixed(2)}</td>
+</tr>
+<tr>
+<td>${celularVendedora}</td>
+</tr>
+`;
+
+tablaBody.innerHTML += totalPdf;
+
+function generarPDF() {
+  window.print();
+}
+
 //boton eliminar
 function borrarProducto(eliminar) {
   let producto = eliminar.target.closest("tr");
@@ -47,34 +78,37 @@ function borrarProducto(eliminar) {
     carritoNumero.innerText = carritoCantidadProductos.length;
   }
   precioTotal.textContent = `$${nuevoPrecio.toFixed(2)}`;
-}
-carritoCantidadProductos.forEach((objeto, index) => {
-  let fila =
-    `<tr id='${objeto.id}'><th>` +
-    (index + 1) +
-    `</th><td>` +
-    objeto.nombre +
-    `</td><td>` +
-    objeto.precio;
 
-  tablaBody.innerHTML += fila;
-});
-let celularVendedora = "Numero de contacto vendedora: 315 124 4567";
-let totalPdf = `
-<tr>
-<td>
-</td>
-<td>
-</td>
-<td>Total $${carritoPrecioTotal.toFixed(2)}</td>
-</tr>
-<tr>
-<td>${celularVendedora}</td>
-</tr>
-`;
+  function recargarTablaOculta() {
+    tablaBody.innerHTML = ``;
+    let carritoLocalStorage = JSON.parse(localStorage.getItem("carrito")) || [];
 
-tablaBody.innerHTML += totalPdf;
+    carritoLocalStorage.forEach((objeto, index) => {
+      let fila =
+        `<tr id='${objeto.id}'><th>` +
+        (index + 1) +
+        `</th><td>` +
+        objeto.nombre +
+        `</td><td>` +
+        objeto.precio;
 
-function generarPDF() {
-  window.print();
+      tablaBody.innerHTML += fila;
+    });
+    let celularVendedora = "Numero de contacto vendedora: 315 124 4567";
+    let totalPdf = `
+    <tr>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td id="totalTablaOculta">Total $${nuevoPrecio.toFixed(2)}</td>
+    </tr>
+    <tr>
+    <td>${celularVendedora}</td>
+    </tr>
+    `;
+
+    tablaBody.innerHTML += totalPdf;
+  }
+  recargarTablaOculta();
 }
