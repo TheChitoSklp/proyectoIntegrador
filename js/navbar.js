@@ -33,8 +33,10 @@ const Navbar = `
       </li>
 
       <li class="nav-item col px-2 iconosCarritoLogin">
+        
         <a  class="nav-link" href="carrito.html">
-          <i  class="bi bi-cart3 fs-3"> </i>
+          <i  class="bi bi-cart3 fs-3"> 
+          </i>
           
         <span id="carritoNumero"></span></a>
         
