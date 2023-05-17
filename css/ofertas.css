@@ -18,3 +18,4 @@
    --bs-btn-active-bg: #{shade-color($bd-violet, 20%)};
    --bs-btn-active-border-color: #{shade-color($bd-violet, 20%)};
  }
+ 

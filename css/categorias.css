@@ -33,3 +33,13 @@
     margin-top: 7.5rem;
   }
 }
+
+#cuerpo{
+  width: 70% !important;
+  background-color: rgb(233, 232, 232);
+  padding-bottom: 2rem;
+}
+
+.fondo{
+  background-color: rgb(228, 206, 219);
+}

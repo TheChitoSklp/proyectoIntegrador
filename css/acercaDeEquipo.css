@@ -3,6 +3,17 @@ main {
   margin-top: 5rem;
   margin-bottom: 7rem;
 }
+
+body {
+  font-family: "Raleway", sans-serif;
+}
+
+p {
+  font-size: medium;
+  text-align: justify;
+  font-weight: normal;
+}
+
 .col-4 {
   position: relative;
   display: flex;
@@ -93,4 +104,28 @@ h5 {
   margin-bottom: 0;
   font-size: 22px;
   font-weight: bold;
+}
+
+#cuerpo{
+  width: 90% !important;
+  background-color: rgb(233, 232, 232);
+}
+
+.flecha{
+  color: rgb(248, 162, 176);
+}
+
+.fondo{
+  background-color: rgb(228, 206, 219);
+}
+
+.iconos{
+  max-width: 5rem;
+  margin-top: 1rem;
+}
+
+.imagen1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

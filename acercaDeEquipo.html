@@ -22,15 +22,21 @@
   <body>
     <!-- Cards de integrantes -->
     <main>
+      <div class="container-fluid rounded" id="cuerpo">
       <div>
-        <h1 class="d-flex align-items-center justify-content-center p-5 fw-bold" style="background-color: rgb(255, 255, 255)">
-          Nuestro Proyecto...
-          <a href="#Nosotros"><i class="bi bi-arrow-down"></i></a>
-        </h1>
+        <div class="row">
+          <div class="col-12 fondo rounded">
+            <h1 class="d-flex align-items-center justify-content-center p-5 fw-bold">Nuestro Proyecto...
+              <a href="#Nosotros"><i class="bi bi-arrow-down flecha"></i></a>
+            </h1>
+          </div>
       </div>
-      <article class="container">
+      <article class="container mt-3 P-2">
         <section class="row rowContainer">
           <div class="card col-12 col-md-3 col-lg-5 h-100">
+            <div class="imagen1">
+              <img src="src/icons/comunidad.png" alt="Comunidad" class="iconos rounded" id="">
+            </div>
             <h5 class="text-center">¡Bienvenidas a nuestra plataforma!</h5>
             <p class="card-text">
               Aquí podrás encontrar productos y servicios de mujeres emprendedoras del
@@ -39,6 +45,9 @@
           </div>
 
           <div class="card col-12 col-md-3 col-lg-5 h-100">
+            <div class="imagen1">
+              <img src="src/icons/acceso.png" alt="Comunidad" class="iconos rounded" id="">
+            </div>
             <h5 class="text-center">Fácil acceso</h5>
             <p class="card-text">
               Navega por nuestras categorías y filtra los productos que te interesen. ¡Te
@@ -47,6 +56,9 @@
           </div>
 
           <div class="card col-12 col-md-3 col-lg-5 h-100">
+            <div class="imagen1">
+              <img src="src/icons/mejora.png" alt="Comunidad" class="iconos rounded" id="">
+            </div>
             <h5 class="text-center">Ayúdanos a mejorar</h5>
             <p class="card-text">
               Evalúa la calidad del servicio y productos de nuestros vendedores, y proporciona
@@ -55,6 +67,9 @@
           </div>
 
           <div class="card col-12 col-md-3 col-lg-5 h-100">
+            <div class="imagen1">
+              <img src="src/icons/seguridad.png" alt="Comunidad" class="iconos rounded" id="">
+            </div>
             <h5 class="text-center">Privacidad y seguridad</h5>
             <p class="card-text">
               Implementamos medidas de autenticación y verificación de identidad para
@@ -64,10 +79,11 @@
         </section>
       </article>
 
-      <h1 class="d-flex align-items-center justify-content-center p-5 fw-bold" style="background-color: rgb(255, 255, 255)">
+      <h1 class="d-flex align-items-center justify-content-center p-5 fw-bold fondo">
         Equipo de desarrollo
       </h1>
-      <div class="container p-4">
+
+      <div class="container p-4" id="Nosotros">
         <section class="row justify-content-center">
           <div class="col-4">
             <!-- ADRIANA -->
@@ -267,6 +283,7 @@
           </div>
         </section>
       </div>
+    </div>
     </main>
 
     <script

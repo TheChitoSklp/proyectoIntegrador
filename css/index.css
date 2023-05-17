@@ -91,3 +91,20 @@ p{
         height: 200px;
     }
   }
+
+  #cuerpo{
+    width: 95% !important;
+    background-color: rgb(233, 232, 232);
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .imagen1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .fondo{
+    background-color: rgb(228, 206, 219);
+  }
