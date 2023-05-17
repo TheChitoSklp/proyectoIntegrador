@@ -34,6 +34,7 @@
   
   #cuerpo{
     width: 90% !important;
+    background-color: rgb(233, 232, 232);
   }
   
   .fondo{
@@ -63,7 +64,7 @@
   }
 
   .iconos:hover{
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 
   #imagenCentro{
@@ -78,9 +79,18 @@
   }
 
   #imagenCentro:hover{
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 
+  #diversidad{
+    width: 10rem;
+    margin-top: 1rem !important;
+    margin-bottom: 1rem;
+  }
 
-
+  #emprendimiento{
+    width: 10rem;
+    margin-top: 1rem !important;
+    margin-bottom: 1rem;
+  }
 

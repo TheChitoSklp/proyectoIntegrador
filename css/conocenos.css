@@ -34,6 +34,7 @@ p {
 
 #cuerpo{
   width: 90% !important;
+  background-color: rgb(233, 232, 232);
 }
 
 .fondo{
@@ -56,14 +57,14 @@ p {
 }
 
 .iconos{
-  max-width: 70%;
+  max-width: 55%;
   margin-top: 5rem;
 }
 
 #ipn{
-  max-width: 48%;
+  max-width: 37.5%;
 }
 
 #compromiso{
-  max-width: 45.5rem;
+  max-width: 36rem;
 }
