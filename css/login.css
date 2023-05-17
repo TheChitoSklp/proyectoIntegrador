@@ -20,16 +20,22 @@ main {
   color: rgb(3, 3, 3);
 }
 
+
 .form-control:focus {
   background-color: whitesmoke;
   border-color: rgba(255, 255, 255, 0.4);
 }
 
-.btn-primary {
+.btn-login {
   color: rgb(51, 51, 51);
   background-color: rosybrown;
-  border: blueviolet;
+  
 }
+.btn-login:hover{
+  color: white;
+  background-color: rgba(204, 0, 0, 0.781);
+}
+
 #btnCerrarSesion {
   background-color: rgba(255, 0, 0, 0.096);
   border: none;
