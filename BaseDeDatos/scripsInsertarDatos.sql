@@ -16,22 +16,28 @@ VALUES ('Sexshop');
 INSERT INTO categorias (nombre)
 VALUES ('Varios');
 
+-- Agregando Descuento
+INSERT INTO descuento (descuento,estado)
+VALUES (0.15,true);
+INSERT INTO descuento (descuento,estado)
+VALUES (0.25,false);
+
 -- Agregando Productos
-INSERT INTO `productos` (nombre, descripcion, precio, imagen, cantidad, categorias_id) 
+INSERT INTO `productos` (nombre, descripcion, precio, imagen, cantidad, categorias_id,`descuento_id`) 
 VALUES ('Anillo Amistad','Los amigos son amigos para siempre y por siempre',
-		250,'imagen1.jpg',73,1 );
-INSERT INTO `productos` (nombre, descripcion, precio, imagen, cantidad, categorias_id) 
+		250.30,'imagen1.jpg',73,1 ,1);
+INSERT INTO `productos` (nombre, descripcion, precio, imagen, cantidad, categorias_id,`descuento_id`) 
 VALUES ('Botas chillonas','Para el mejor cocinero del mundo',
-		100,'imagen2.jpg',693,4 );
-        INSERT INTO `productos` (nombre, descripcion, precio, imagen, cantidad, categorias_id) 
+		100.34,'imagen2.jpg',693,4,1 );
+INSERT INTO `productos` (nombre, descripcion, precio, imagen, cantidad, categorias_id,`descuento_id`) 
 VALUES ('Sandalias aerodinámicas','Son aerodinámicas ',
-		300,'imagen3.jpg',103,3 );
-        INSERT INTO `productos` (nombre, descripcion, precio, imagen, cantidad, categorias_id) 
+		300.43,'imagen3.jpg',103,3 ,2);
+INSERT INTO `productos` (nombre, descripcion, precio, imagen, cantidad, categorias_id,`descuento_id`) 
 VALUES ('Capa de invisivilidad ','Te hace menos visible para otros ',
-		340,'imagen4.jpg',73,5 );
-        INSERT INTO `productos` (nombre, descripcion, precio, imagen, cantidad, categorias_id) 
+		340.22,'imagen4.jpg',73,5 ,2);
+INSERT INTO `productos` (nombre, descripcion, precio, imagen, cantidad, categorias_id,`descuento_id`) 
 VALUES ('Pastilla de chiquitolina  ','Olvidate de las partículas PIM',
-		215,'imagen5.jpg',83,6 );
+		215.12,'imagen5.jpg',83,6 ,2);
 -- Agregando usuario 
 
  INSERT INTO `usuarios` (`nombre`,`apellido`,`password`,`boleta`,`correo`,`telefono`,`rol`,`foto`) 
